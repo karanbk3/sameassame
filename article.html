@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123B3A">
+
+    <meta name="description"
+        content="Explore ideas, knowledge and stories in the coreI Reading Space.">
+
+    <title>Reading Space — coreI</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Article Stylesheet -->
+    <link rel="stylesheet" href="./article.css">
+</head>
+
+<body>
+
+    <!-- =====================================
+         1. HEADER
+    ====================================== -->
+
+    <header class="topbar">
+
+        <a href="./main.html" class="brand">
+            <span class="brand-icon">c</span>
+            <span>coreI</span>
+        </a>
+
+    </header>
+
+
+    <!-- =====================================
+         2. BOTTOM NAVIGATION
+    ====================================== -->
+
+    <nav class="main-navigation" id="mainNavigation">
+
+        <a href="./main.html" class="nav-link">
+            Home
+        </a>
+
+        <a href="./discover.html" class="nav-link active">
+            Discover
+        </a>
+
+        <a href="./main.html" class="nav-link">
+            Express
+        </a>
+
+        <a href="./main.html" class="nav-link">
+            Connect
+        </a>
+
+    </nav>
+
+
+    <!-- =====================================
+         3. MAIN ARTICLE CONTAINER
+    ====================================== -->
+
+    <main class="article-container">
+
+
+        <!-- Breadcrumb -->
+
+        <div class="breadcrumb">
+
+            <a href="./discover.html">
+                Discover
+            </a>
+
+            <span>›</span>
+
+            <a href="#" id="articleCategoryLink">
+                Category
+            </a>
+
+            <span>›</span>
+
+            <span>Reading</span>
+
+        </div>
+
+
+        <!-- =================================
+             4. LOADING MESSAGE
+        ================================== -->
+
+        <section class="article-loading" id="articleLoading">
+
+            <div class="loading-spinner"></div>
+
+            <h2>Preparing your reading space</h2>
+
+            <p>Please wait while we load the article.</p>
+
+        </section>
+
+
+        <!-- =================================
+             5. ERROR MESSAGE
+        ================================== -->
+
+        <section class="article-error" id="articleError" hidden>
+
+            <div class="error-icon">!</div>
+
+            <h2>Article unavailable</h2>
+
+            <p id="articleErrorMessage">
+                We couldn't load this article.
+            </p>
+
+            <button type="button" id="retryArticleButton">
+                Try Again
+            </button>
+
+            <a href="./discover.html" class="error-back-link">
+                Return to Discover
+            </a>
+
+        </section>
+
+
+        <!-- =================================
+             6. ARTICLE CONTENT
+        ================================== -->
+
+        <article class="article-content" id="articleContent" hidden>
+
+
+            <!-- Article Header -->
+
+            <header class="article-header">
+
+                <div class="article-labels">
+
+                    <span class="article-category" id="articleCategory">
+                        Category
+                    </span>
+
+                    <span class="article-language" id="articleLanguage">
+                        English
+                    </span>
+
+                </div>
+
+
+                <h1 id="articleTitle">
+                    Article Title
+                </h1>
+
+
+                <p class="article-description" id="articleDescription">
+                    Article description will appear here.
+                </p>
+
+
+                <!-- Author Information -->
+
+                <div class="article-information">
+
+                    <div class="author-information">
+
+                        <div class="author-avatar" id="authorAvatar">
+                            A
+                        </div>
+
+                        <div class="author-details">
+
+                            <span class="information-label">
+                                Written by
+                            </span>
+
+                            <strong id="articleAuthor">
+                                Author Name
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="article-meta">
+
+                        <div>
+                            <span class="information-label">
+                                Published
+                            </span>
+
+                            <strong id="articleDate">
+                                —
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span class="information-label">
+                                Reading time
+                            </span>
+
+                            <strong id="articleReadingTime">
+                                —
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================
+                 7. COVER IMAGE
+            ================================== -->
+
+            <div class="article-cover-wrapper" id="articleCoverWrapper" hidden>
+
+                <img
+                    src=""
+                    alt="Article cover image"
+                    id="articleCover"
+                    class="article-cover"
+                >
+
+            </div>
+
+
+            <!-- =================================
+                 8. ARTICLE BODY
+            ================================== -->
+
+            <section class="article-reading-section">
+
+                <div class="reading-heading">
+
+                    <span class="reading-heading-line"></span>
+
+                    <span>THE READING SPACE</span>
+
+                </div>
+
+
+                <div class="article-body" id="articleBody">
+                    Article content will appear here.
+                </div>
+
+
+                <!-- Editor Information -->
+
+                <div class="editor-information" id="editorInformation" hidden>
+
+                    <span>Reviewed and edited by</span>
+
+                    <strong id="articleEditor">
+                        Editor Name
+                    </strong>
+
+                </div>
+
+
+                <!-- Source Information -->
+
+                <div class="article-source" id="articleSourceSection" hidden>
+
+                    <h3>References and Further Reading</h3>
+
+                    <p>
+                        Explore the original source or additional material.
+                    </p>
+
+                    <a
+                        href="#"
+                        id="articleSourceLink"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Visit Source ↗
+                    </a>
+
+                </div>
+
+
+                <!-- =================================
+                     9. APPRECIATION
+                ================================== -->
+
+                <div class="article-appreciation">
+
+                    <div class="appreciation-content">
+
+                        <h3>Did you find this meaningful?</h3>
+
+                        <p>
+                            Appreciate the effort.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="articleStarButton"
+                        class="appreciation-button"
+                        disabled
+                    >
+
+                        <span id="articleStarIcon">♡</span>
+
+                        <span id="articleStarText">
+                            Appreciate
+                        </span>
+
+                        <span id="articleStarCount">
+                            0
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================
+                 10. END OF ARTICLE
+            ================================== -->
+
+            <section class="article-ending">
+
+                <div class="ending-symbol">
+                    ✦
+                </div>
+
+                <h2>Every idea opens a new possibility.</h2>
+
+                <p>
+                    Keep exploring, keep learning and keep growing.
+                </p>
+
+                <a href="./discover.html" class="discover-more-button">
+                    Explore More Reading
+                    <span>→</span>
+                </a>
+
+            </section>
+
+
+            <!-- Back to Category -->
+
+            <div class="article-back">
+
+                <a href="#" id="backToCategory">
+                    Back 
+                </a>
+
+            </div>
+
+
+        </article>
+
+
+    </main>
+
+
+    <!-- =====================================
+         11. FOOTER
+    ====================================== -->
+
+    <footer class="site-footer">
+
+        <a href="./main.html" class="footer-brand">
+            <span class="brand-icon">c</span>
+            <span>coreI</span>
+        </a>
+
+        <p>
+            A space to discover. A place to grow.
+        </p>
+
+        <span class="footer-copy">
+            © <span id="currentYear"></span> coreI. All rights reserved.
+        </span>
+
+    </footer>
+
+
+    <!-- =====================================
+         12. JAVASCRIPT
+    ====================================== -->
+
+    <script type="module" src="./article.js"></script>
+
+</body>
+</html>

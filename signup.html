@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Join coreI — Ideas have a place</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./signup.css">
+<script type="module" src="./signup.js"></script>
+
+<body>
+
+    <header class="signup-header">
+        <a href="./index.html" class="logo">core<span>I</span></a>
+        <a href="./index.html" class="back-link">←  home</a>
+    </header>
+
+    <main class="signup-page">
+
+        <section class="signup-card">
+
+            <div class="welcome-icon">✳</div>
+
+            <span class="eyebrow">YOUR SPACE STARTS HERE</span>
+
+            <h1>Join  <span>COREI</span></h1>
+
+            <p class="intro">
+               before creating new account dont put your E-mail password here,create new password for corei and request here!
+            </p>
+
+            <form id="signupForm">
+
+                <div class="form-group">
+                    <label for="displayName">Your name</label>
+                    <input
+                        type="text"
+                        id="displayName"
+                        placeholder="Enter your display name"
+                        maxlength="40"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Create password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="At least 8 characters"
+                        minlength="8"
+                        autocomplete="new-password"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm password</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Enter your password again"
+                        minlength="8"
+                        autocomplete="new-password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" id="signupButton">
+                    Request membership <span>↗</span>
+                </button>
+
+                <p id="signupMessage" class="message" role="status" aria-live="polite"></p>
+
+            </form>
+
+            <div class="signup-divider">
+                <span></span>
+                <p>ALREADY A MEMBER?</p>
+                <span></span>
+            </div>
+
+            <a href="./login.html" class="login-link">
+                LOGIN
+            </a>
+
+            <div class="approval-note">
+                <span>✦</span>
+               <h4> WE WILL APPROVE YOUR ACCOUNT VERY SOON,
+                CHECK OUT AFTER 10 MINUTES !</h4>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="signup-footer">
+        Ideas have a place. © 2026 coreI
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+
+/* =================================
+   coreI - LOGIN PAGE
+================================= */
+
+:root {
+    --navy: #10172B;
+    --blue: #263B5B;
+    --violet: #A78BFA;
+    --cream: #F3F0E8;
+    --white: #FFFFFF;
+    --muted: #777F91;
+    --border: #E5E7ED;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top right, #E9E3FA, transparent 35%),
+        linear-gradient(135deg, #F3F0E8, #F8F8FC);
+    color: var(--navy);
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 18px;
+}
+
+.brand {
+    text-decoration: none;
+    color: var(--navy);
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+.brand span {
+    color: var(--violet);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 470px;
+    padding: 42px 38px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(16, 23, 43, 0.08);
+}
+
+.eyebrow {
+    color: #8A7BB8;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(32px, 7vw, 42px);
+    letter-spacing: -1.5px;
+    margin-bottom: 12px;
+}
+
+.description {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 14px;
+    margin-bottom: 32px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+input {
+    width: 100%;
+    min-height: 55px;
+    padding: 0 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #FAFAFC;
+    color: var(--navy);
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+input:focus {
+    border-color: var(--violet);
+    box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.13);
+}
+
+input::placeholder {
+    color: #A4A8B2;
+}
+
+button {
+    width: 100%;
+    min-height: 57px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(110deg, var(--blue), var(--navy));
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button span {
+    margin-left: 9px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(16, 23, 43, 0.17);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.message {
+    min-height: 20px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.message.error {
+    color: #C03945;
+}
+
+.message.success {
+    color: #218653;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 38px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border);
+}
+
+.signup-link p {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.signup-link a {
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    color: #8263D6;
+}
+
+.footer-note {
+    text-align: center;
+    color: #A0A3AD;
+    font-size: 11px;
+    margin-top: 30px;
+}
+
+/* SMALL PHONE SCREENS */
+
+@media (max-width: 420px) {
+    .login-card {
+        padding: 32px 22px;
+        border-radius: 20px;
+    }
+
+    .login-container {
+        padding: 25px 14px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+}

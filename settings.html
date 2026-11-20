@@ -1,0 +1,1320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123B3A">
+
+    <title>Settings | coreI</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./settings.css">
+
+    <!-- JavaScript -->
+    <script type="module" src="./settings.js"></script>
+</head>
+
+<body>
+
+    <!-- =====================================
+         1. TOP NAVIGATION
+    ====================================== -->
+
+    <header class="settings-header">
+
+        <div class="settings-header-inner">
+
+            <a href="./main.html" class="brand">
+                <span>coreI</span>
+            </a>
+
+            <nav class="header-actions">
+
+                <a href="./main.html" class="header-link">
+                    Home
+                </a>
+
+                <a href="./profile.html" class="header-link">
+                    My Profile
+                </a>
+
+                <a href="./settings.html" class="header-link active">
+                    Settings
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         2. MAIN SETTINGS PAGE
+    ====================================== -->
+
+    <main class="settings-container">
+
+
+        <!-- PAGE INTRODUCTION -->
+
+        <section class="settings-heading">
+
+            <div>
+
+                <span class="eyebrow">YOUR ACCOUNT</span>
+
+                <h1>Settings</h1>
+
+                <p>
+                    Manage your profile, privacy and personal preferences
+                    in one place.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             3. SETTINGS SEARCH
+        ================================== -->
+
+        <div class="settings-search">
+
+            <span class="search-icon">⌕</span>
+
+            <input
+                type="search"
+                id="settingsSearch"
+                placeholder="Search settings..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="clearSettingsSearch"
+                aria-label="Clear search"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <!-- =================================
+             4. SETTINGS LAYOUT
+        ================================== -->
+
+        <div class="settings-layout">
+
+
+            <!-- LEFT SIDEBAR -->
+
+            <aside class="settings-sidebar">
+
+                <div class="sidebar-profile">
+
+                    <div class="sidebar-profile-icon">
+                        <span>👤</span>
+                    </div>
+
+                    <div>
+                        <strong>Account settings</strong>
+                        <small>Manage your coreI account</small>
+                    </div>
+
+                </div>
+
+
+                <p class="sidebar-heading">
+                    YOUR SETTINGS
+                </p>
+
+
+                <nav
+                    class="settings-navigation"
+                    id="settingsNavigation"
+                >
+
+                    <a
+                        href="#personal-information"
+                        class="settings-menu-link active"
+                    >
+                        <span class="menu-icon">👤</span>
+                        <span>Personal information</span>
+                    </a>
+
+
+                    <a
+                        href="#security-login"
+                        class="settings-menu-link"
+                    >
+                        <span class="menu-icon">🔐</span>
+                        <span>Security & login</span>
+                    </a>
+
+
+                    <a
+                        href="#notifications"
+                        class="settings-menu-link"
+                    >
+                        <span class="menu-icon">🔔</span>
+                        <span>Notifications</span>
+                    </a>
+
+
+                    <a
+                        href="#privacy"
+                        class="settings-menu-link"
+                    >
+                        <span class="menu-icon">🛡️</span>
+                        <span>Privacy controls</span>
+                    </a>
+
+
+                    <a
+                        href="#appearance"
+                        class="settings-menu-link"
+                    >
+                        <span class="menu-icon">🎨</span>
+                        <span>Appearance</span>
+                    </a>
+
+
+                    <a
+                        href="#my-activity"
+                        class="settings-menu-link"
+                    >
+                        <span class="menu-icon">📊</span>
+                        <span>My activity</span>
+                    </a>
+
+
+                    <a
+                        href="#data-management"
+                        class="settings-menu-link"
+                    >
+                        <span class="menu-icon">💾</span>
+                        <span>Data & account</span>
+                    </a>
+
+
+                    <a
+                        href="#help-support"
+                        class="settings-menu-link"
+                    >
+                        <span class="menu-icon">❓</span>
+                        <span>Help & support</span>
+                    </a>
+
+                </nav>
+
+
+                <div class="sidebar-bottom">
+
+                    <a href="./main.html">
+                        ← Back to coreI
+                    </a>
+
+                </div>
+
+            </aside>
+
+
+
+            <!-- =================================
+                 MAIN SETTINGS CONTENT
+            ================================== -->
+
+            <div class="settings-content">
+
+
+                <!-- =================================
+                     5. PERSONAL INFORMATION
+                ================================== -->
+
+                <section
+                    class="settings-section"
+                    id="personal-information"
+                    data-search="personal profile name photo bio information"
+                >
+
+                    <div class="section-heading">
+
+                        <span class="section-icon">👤</span>
+
+                        <div>
+                            <h2>Personal information</h2>
+
+                            <p>
+                                Keep your profile information up to date.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card">
+
+                        <form id="profileSettingsForm">
+
+
+                            <!-- PROFILE PHOTO -->
+
+                            <div class="avatar-settings">
+
+                                <img
+                                    id="avatarPreview"
+                                    src="./images/default-profile.png"
+                                    alt="Profile photo"
+                                >
+
+                                <div>
+
+                                    <h3>Profile photo</h3>
+
+                                    <p>
+                                        Choose a photo that represents you.
+                                    </p>
+
+                                    <small>
+                                        JPG, PNG or WEBP. Maximum 5 MB.
+                                    </small>
+
+                                    <label
+                                        for="avatarInput"
+                                        class="upload-button"
+                                    >
+                                        Choose photo
+                                    </label>
+
+                                    <input
+                                        type="file"
+                                        id="avatarInput"
+                                        accept="image/jpeg,image/png,image/webp"
+                                        hidden
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="settings-divider"></div>
+
+
+                            <!-- DISPLAY NAME -->
+
+                            <div class="form-group">
+
+                                <label for="displayName">
+                                    Display name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="displayName"
+                                    maxlength="40"
+                                    placeholder="Enter your display name"
+                                    required
+                                >
+
+                                <small>
+                                    Display name changes are limited
+                                    to once every 30 days.
+                                </small>
+
+                            </div>
+
+
+                            <!-- BIO -->
+
+                            <div class="form-group">
+
+                                <label for="bio">
+                                    About me
+                                </label>
+
+                                <textarea
+                                    id="bio"
+                                    maxlength="160"
+                                    rows="3"
+                                    placeholder="Tell people something about yourself..."
+                                ></textarea>
+
+                                <small>
+                                    Maximum 160 characters.
+                                </small>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="primary-button"
+                                id="saveProfileButton"
+                            >
+                                Save changes
+                            </button>
+
+                            <p
+                                id="profileMessage"
+                                class="settings-message"
+                                aria-live="polite"
+                            ></p>
+
+                        </form>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     6. SECURITY & LOGIN
+                ================================== -->
+
+                <section
+                    class="settings-section"
+                    id="security-login"
+                    data-search="security login email password account member"
+                >
+
+                    <div class="section-heading">
+
+                        <span class="section-icon">🔐</span>
+
+                        <div>
+                            <h2>Security & login</h2>
+
+                            <p>
+                                Manage your login information and account security.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="settings-card">
+
+                        <h3>Email address</h3>
+
+                        <form id="emailSettingsForm">
+
+                            <div class="form-group">
+
+                                <label for="newEmail">
+                                    New email address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="newEmail"
+                                    placeholder="Enter your new email"
+                                    required
+                                >
+
+                                <small>
+                                    You may need to confirm your new email.
+                                </small>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="primary-button"
+                                id="updateEmailButton"
+                            >
+                                Update email
+                            </button>
+
+                            <p
+                                id="emailMessage"
+                                class="settings-message"
+                                aria-live="polite"
+                            ></p>
+
+                        </form>
+
+
+                        <div class="settings-divider"></div>
+
+
+                        <!-- PASSWORD -->
+
+                        <h3>Change password</h3>
+
+                        <form id="passwordSettingsForm">
+
+                            <div class="form-group">
+
+                                <label for="newPassword">
+                                    New password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="newPassword"
+                                    minlength="8"
+                                    autocomplete="new-password"
+                                    placeholder="Enter new password"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="confirmPassword">
+                                    Confirm new password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    minlength="8"
+                                    autocomplete="new-password"
+                                    placeholder="Enter password again"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="primary-button"
+                                id="updatePasswordButton"
+                            >
+                                Change password
+                            </button>
+
+                            <p
+                                id="passwordMessage"
+                                class="settings-message"
+                                aria-live="polite"
+                            ></p>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- ACCOUNT INFORMATION -->
+
+                    <div class="settings-card account-information">
+
+                        <h3>Account information</h3>
+
+                        <div class="account-row">
+
+                            <span>Member ID</span>
+
+                            <strong id="settingsMemberCode">
+                                Loading...
+                            </strong>
+
+                        </div>
+
+
+                        <div class="account-row">
+
+                            <span>Account status</span>
+
+                            <strong id="settingsMemberStatus">
+                                Loading...
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     7. NOTIFICATIONS
+                ================================== -->
+
+                <section
+                    class="settings-section"
+                    id="notifications"
+                    data-search="notifications alerts updates ideas announcements"
+                >
+
+                    <div class="section-heading">
+
+                        <span class="section-icon">🔔</span>
+
+                        <div>
+                            <h2>Notifications</h2>
+
+                            <p>
+                                Choose the updates that matter to you.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card">
+
+                        <h3>Notification preferences</h3>
+
+
+                        <div class="settings-option">
+
+                            <div>
+                                <strong>Idea updates</strong>
+
+                                <p>
+                                    Receive updates related to community ideas.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="ideaNotifications"
+                                >
+
+                                <span class="switch-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="settings-option">
+
+                            <div>
+                                <strong>Community announcements</strong>
+
+                                <p>
+                                    Stay informed about important updates.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="announcementNotifications"
+                                >
+
+                                <span class="switch-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="settings-option">
+
+                            <div>
+                                <strong>Account notifications</strong>
+
+                                <p>
+                                    Receive important account-related updates.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="accountNotifications"
+                                >
+
+                                <span class="switch-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="primary-button"
+                            id="saveNotificationSettings"
+                        >
+                            Save notification preferences
+                        </button>
+
+                        <p
+                            id="notificationMessage"
+                            class="settings-message"
+                            aria-live="polite"
+                        ></p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     8. PRIVACY CONTROLS
+                ================================== -->
+
+                <section
+                    class="settings-section"
+                    id="privacy"
+                    data-search="privacy visibility profile information sharing"
+                >
+
+                    <div class="section-heading">
+
+                        <span class="section-icon">🛡️</span>
+
+                        <div>
+                            <h2>Privacy controls</h2>
+
+                            <p>
+                                Decide what information you want to share.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card">
+
+                        <h3>Profile visibility</h3>
+
+                        <p class="card-description">
+                            Choose who can view your public profile.
+                        </p>
+
+
+                        <div class="form-group">
+
+                            <label for="profileVisibility">
+                                Who can view my profile?
+                            </label>
+
+                            <select id="profileVisibility">
+
+                                <option value="public">
+                                    Visible to everyone
+                                </option>
+
+                                <option value="members">
+                                    Approved members only
+                                </option>
+
+                                <option value="private">
+                                    Private
+                                </option>
+
+                            </select>
+
+                            <small>
+                                This preference is not enforced until
+                                database policies and page access checks
+                                are connected.
+                            </small>
+
+                        </div>
+
+
+                        <div class="settings-divider"></div>
+
+
+                        <h3>Profile information</h3>
+
+                        <p class="card-description">
+                            Control the visibility of individual profile details.
+                        </p>
+
+
+                        <div class="settings-option">
+
+                            <div>
+                                <strong>Show my bio</strong>
+
+                                <p>
+                                    Allow others to see your introduction.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="showBio"
+                                    checked
+                                >
+
+                                <span class="switch-slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="privacy-notice">
+
+                            <strong>Your personal information stays private.</strong>
+
+                            <p>
+                                Learning goals, personal reflections, journals
+                                and private notes will not be shared simply
+                                because your profile is visible.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="primary-button"
+                            id="savePrivacySettings"
+                        >
+                            Save privacy preferences
+                        </button>
+
+                        <p
+                            id="privacyMessage"
+                            class="settings-message"
+                            aria-live="polite"
+                        ></p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     9. APPEARANCE
+                ================================== -->
+
+                <section
+                    class="settings-section"
+                    id="appearance"
+                    data-search="appearance theme light dark display"
+                >
+
+                    <div class="section-heading">
+
+                        <span class="section-icon">🎨</span>
+
+                        <div>
+                            <h2>Appearance</h2>
+
+                            <p>
+                                Personalise how coreI looks on your device.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card">
+
+                        <h3>Theme preference</h3>
+
+                        <p class="card-description">
+                            Choose how you prefer to view coreI.
+                        </p>
+
+
+                        <div class="theme-options">
+
+                            <label class="theme-option">
+
+                                <input
+                                    type="radio"
+                                    name="themePreference"
+                                    id="lightTheme"
+                                    value="light"
+                                    checked
+                                >
+
+                                <span class="theme-preview light-preview">
+                                    <span></span>
+                                    <span></span>
+                                </span>
+
+                                <strong>Light</strong>
+
+                            </label>
+
+
+                            <label class="theme-option">
+
+                                <input
+                                    type="radio"
+                                    name="themePreference"
+                                    id="darkTheme"
+                                    value="dark"
+                                >
+
+                                <span class="theme-preview dark-preview">
+                                    <span></span>
+                                    <span></span>
+                                </span>
+
+                                <strong>Dark</strong>
+
+                            </label>
+
+
+                            <label class="theme-option">
+
+                                <input
+                                    type="radio"
+                                    name="themePreference"
+                                    id="systemTheme"
+                                    value="system"
+                                >
+
+                                <span class="theme-preview system-preview">
+                                    <span></span>
+                                    <span></span>
+                                </span>
+
+                                <strong>System</strong>
+
+                            </label>
+
+                        </div>
+
+
+                        <p
+                            id="themeMessage"
+                            class="settings-message"
+                            aria-live="polite"
+                        ></p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     10. MY ACTIVITY
+                ================================== -->
+
+                <section
+                    class="settings-section"
+                    id="my-activity"
+                    data-search="activity history ideas interactions"
+                >
+
+                    <div class="section-heading">
+
+                        <span class="section-icon">📊</span>
+
+                        <div>
+                            <h2>My activity</h2>
+
+                            <p>
+                                Review your activity in the coreI community.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card">
+
+                        <div class="activity-summary">
+
+                            <div class="activity-stat">
+
+                                <span id="myIdeasCount">—</span>
+
+                                <small>My ideas</small>
+
+                            </div>
+
+
+                            <div class="activity-stat">
+
+                                <span id="myNotificationsCount">—</span>
+
+                                <small>Notifications</small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="settings-divider"></div>
+
+
+                        <h3>Recent activity</h3>
+
+                        <div
+                            id="activityList"
+                            class="activity-list"
+                        >
+
+                            <p class="empty-state">
+                                Your activity will appear here.
+                            </p>
+
+                        </div>
+
+                        <p
+                            id="activityMessage"
+                            class="settings-message"
+                            aria-live="polite"
+                        ></p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     11. DATA & ACCOUNT
+                ================================== -->
+
+                <section
+                    class="settings-section"
+                    id="data-management"
+                    data-search="data export download account deletion"
+                >
+
+                    <div class="section-heading">
+
+                        <span class="section-icon">💾</span>
+
+                        <div>
+                            <h2>Data & account management</h2>
+
+                            <p>
+                                Manage your personal account information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card">
+
+
+                        <!-- EXPORT DATA -->
+
+                        <div class="settings-option">
+
+                            <div>
+                                <strong>Download my data</strong>
+
+                                <p>
+                                    Download a copy of your account information.
+                                </p>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="secondary-button"
+                                id="exportDataButton"
+                            >
+                                Export
+                            </button>
+
+                        </div>
+
+
+                        <p
+                            id="exportMessage"
+                            class="settings-message"
+                            aria-live="polite"
+                        ></p>
+
+
+                        <div class="settings-divider"></div>
+
+
+                        <!-- ACCOUNT DELETION -->
+
+                        <div class="settings-option">
+
+                            <div>
+                                <strong>Account deletion</strong>
+
+                                <p>
+                                    Learn about safely closing your account.
+                                </p>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="secondary-button"
+                                id="accountDeletionInfoButton"
+                            >
+                                Learn more
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            id="accountDeletionInfo"
+                            class="information-panel"
+                            hidden
+                        >
+
+                            <p>
+                                Account deletion requires a secure verification
+                                process. It cannot be completed by simply
+                                deleting your profile from this page.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     12. HELP & SUPPORT
+                ================================== -->
+
+                <section
+                    class="settings-section"
+                    id="help-support"
+                    data-search="help support contact feedback problem"
+                >
+
+                    <div class="section-heading">
+
+                        <span class="section-icon">❓</span>
+
+                        <div>
+                            <h2>Help & support</h2>
+
+                            <p>
+                                Need help? Tell us what is happening.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-card">
+
+                        <form id="supportForm">
+
+
+                            <div class="form-group">
+
+                                <label for="supportSubject">
+                                    Subject
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="supportSubject"
+                                    maxlength="100"
+                                    placeholder="What do you need help with?"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="supportCategory">
+                                    Category
+                                </label>
+
+                                <select
+                                    id="supportCategory"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Choose a category
+                                    </option>
+
+                                    <option value="account">
+                                        Account problem
+                                    </option>
+
+                                    <option value="security">
+                                        Security problem
+                                    </option>
+
+                                    <option value="technical">
+                                        Technical issue
+                                    </option>
+
+                                    <option value="suggestion">
+                                        Suggestion
+                                    </option>
+
+                                    <option value="other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="supportMessage">
+                                    Describe your problem
+                                </label>
+
+                                <textarea
+                                    id="supportMessage"
+                                    rows="5"
+                                    maxlength="2000"
+                                    placeholder="Explain how we can help..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="primary-button"
+                                id="submitSupportButton"
+                            >
+                                Submit request
+                            </button>
+
+
+                            <p
+                                id="supportFormMessage"
+                                class="settings-message"
+                                aria-live="polite"
+                            ></p>
+
+                        </form>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     13. SIGN OUT
+                ================================== -->
+
+                <section class="settings-section logout-section">
+
+                    <div class="settings-card logout-card">
+
+                        <div>
+
+                            <h3>Sign out</h3>
+
+                            <p>
+                                Sign out of your coreI account on this device.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="logoutButton"
+                            class="logout-button"
+                        >
+                            Sign out
+                        </button>
+
+
+                        <p
+                            id="logoutMessage"
+                            class="settings-message"
+                            aria-live="polite"
+                        ></p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     14. FOOTER
+                ================================== -->
+
+                <footer class="settings-footer">
+
+                    <a href="./main.html" class="brand">
+                        coreI
+                    </a>
+
+                    <p>
+                        A space to discover. A place to grow.
+                    </p>
+
+                    <small>
+                        © 2026 coreI. All rights reserved.
+                    </small>
+
+                </footer>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================
+         15. MOBILE NAVIGATION
+    ====================================== -->
+
+    <nav class="settings-bottom-navigation">
+
+        <a href="./main.html">
+            <span>⌂</span>
+            <small>Home</small>
+        </a>
+
+        <a href="./profile.html">
+            <span>👤</span>
+            <small>Profile</small>
+        </a>
+
+        <a href="./settings.html" class="active">
+            <span>⚙</span>
+            <small>Settings</small>
+        </a>
+
+    </nav>
+
+</body>
+</html>

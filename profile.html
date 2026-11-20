@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#F5F4EC">
+
+    <title>My Profile | coreI</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./profile.css">
+
+    <!-- JavaScript -->
+    <script type="module" src="./profile.js"></script>
+</head>
+
+<body>
+
+    <!-- ==================================
+         TOP NAVIGATION
+    =================================== -->
+
+    <header class="profile-header">
+
+        <div class="header-inner">
+
+            <a href="./main.html" class="brand">
+                core<span>I</span>
+            </a>
+
+            <nav class="header-navigation">
+
+                <a href="./main.html" class="header-link">
+                    Home
+                </a>
+
+                <a href="./profile.html" class="header-link active">
+                    Profile
+                </a>
+
+                <a href="./settings.html" class="header-link">
+                    Settings
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================================
+         PROFILE PAGE
+    =================================== -->
+
+    <main class="profile-container">
+
+
+        <!-- PROFILE HEADER -->
+
+        <section class="profile-card">
+
+            <!-- Cover photo -->
+
+            <div class="profile-cover" id="profileCover">
+
+                <span class="cover-placeholder">
+                    Your cover photo
+                </span>
+
+            </div>
+
+
+            <!-- Main profile information -->
+
+            <div class="profile-information">
+
+                <div class="profile-avatar-container">
+
+                    <img
+                        src="./images/default-profile.png"
+                        id="profilePhoto"
+                        class="profile-avatar"
+                        alt="Profile picture"
+                    >
+
+                </div>
+
+
+                <div class="profile-details">
+
+                    <div class="profile-title-row">
+
+                        <div class="profile-name-area">
+
+                            <h1 id="profileName">
+                                Loading profile...
+                            </h1>
+
+                            
+
+                        </div>
+
+                        <span
+                            id="profileStatus"
+                            class="profile-status"
+                        >
+                            Member
+                        </span>
+
+                    </div>
+
+
+                    <p id="profileBio" class="profile-bio">
+                        Your introduction will appear here.
+                    </p>
+
+
+                    <div class="profile-meta">
+
+                        <span id="profileJoinedDate">
+                            Member since
+                        </span>
+
+                        <span id="profileLocation" hidden>
+                            Location
+                        </span>
+
+                    </div>
+
+
+                    <div class="profile-actions">
+
+                        <a
+                            href="./settings.html"
+                            class="primary-button"
+                        >
+                            Edit profile
+                        </a>
+
+                       
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE TABS -->
+
+            <nav class="profile-tabs">
+
+                <a href="#postsSection" class="profile-tab active">
+                    Posts
+                </a>
+
+                <a href="#aboutSection" class="profile-tab">
+                    About
+                </a>
+
+                <a href="#learningGoalsSection" class="profile-tab">
+                    Learning
+                </a>
+
+            </nav>
+
+        </section>
+
+
+        <!-- ==================================
+             PROFILE BODY
+        =================================== -->
+
+        <div class="profile-content">
+
+
+            <!-- LEFT COLUMN -->
+
+            <aside class="profile-left-column">
+
+
+                <!-- ABOUT -->
+
+                <section class="content-card" id="aboutSection">
+
+                    <h2>About</h2>
+
+                    <p class="card-description">
+                        A little information about this member.
+                    </p>
+
+                    <div class="about-information">
+
+                        <div class="about-item">
+
+                            <span class="about-icon">✦</span>
+
+                            <div>
+                                <strong>Introduction</strong>
+                                <p id="sidebarBio">
+                                    No introduction added yet.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="about-item">
+
+                            <span class="about-icon">◷</span>
+
+                            <div>
+                                <strong>Joined coreI</strong>
+                                <p id="aboutJoinedDate">
+                                    Loading...
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                   
+                </section>
+
+
+                <!-- LEARNING GOALS -->
+
+                <section
+                    class="content-card"
+                    id="learningGoalsSection"
+                >
+
+                    <h2>Learning goals</h2>
+
+                    <p class="card-description">
+                        What I want to learn and achieve.
+                    </p>
+
+                    <div id="learningGoalsList" class="content-list">
+
+                        <div class="empty-card">
+                            <p>No learning goals added yet.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- SKILLS -->
+
+                <section
+                    class="content-card"
+                    id="skillsSection"
+                >
+
+                    <h2>Skills I'm learning</h2>
+
+                    <div id="learningSkillsList" class="tag-list">
+
+                        <div class="empty-card">
+                            <p>No skills added yet.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- INTERESTS -->
+
+                <section
+                    class="content-card"
+                    id="interestsSection"
+                >
+
+                    <h2>Interests</h2>
+
+                    <div id="interestsList" class="tag-list">
+
+                        <div class="empty-card">
+                            <p>No interests added yet.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- EXPLORE TOPICS -->
+
+                <section
+                    class="content-card"
+                    id="exploreTopicsSection"
+                >
+
+                    <h2>Topics I want to explore</h2>
+
+                    <div id="exploreTopicsList" class="content-list">
+
+                        <div class="empty-card">
+                            <p>No topics added yet.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CAREER INTERESTS -->
+
+                <section
+                    class="content-card"
+                    id="careerSection"
+                    hidden
+                >
+
+                    <h2>Career interests</h2>
+
+                    <div id="careerInterestsList"></div>
+
+                </section>
+
+
+                <!-- HOBBIES -->
+
+                <section
+                    class="content-card"
+                    id="hobbiesSection"
+                    hidden
+                >
+
+                    <h2>Hobbies and activities</h2>
+
+                    <div id="hobbiesList"></div>
+
+                </section>
+
+
+                <!-- ADMIN -->
+
+                <section
+                    class="content-card admin-card"
+                    id="adminCard"
+                    hidden
+                >
+
+                    <h2>Administrator</h2>
+
+                    <p class="card-description">
+                        Manage the coreI community.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="adminDashboardButton"
+                        class="primary-button"
+                    >
+                        Open admin dashboard
+                    </button>
+
+                </section>
+
+
+            </aside>
+
+
+            <!-- RIGHT COLUMN -->
+
+            <section class="profile-right-column">
+
+
+                <!-- SHARE IDEA -->
+
+                <section class="content-card share-card">
+
+                    <h2>Share something with the community</h2>
+
+                    <p class="card-description">
+                        Have an idea, thought or something useful to share?
+                    </p>
+
+                    <a href="./main.html" class="primary-button">
+                        Share an idea
+                    </a>
+
+                </section>
+
+
+                <!-- PUBLISHED IDEAS -->
+
+                <section
+                    class="content-card posts-card"
+                    id="postsSection"
+                >
+
+                    <div class="posts-heading">
+
+                        <div>
+                            <h2>My posts</h2>
+
+                            <p class="card-description">
+                                Ideas I've shared with the community.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div id="myIdeasList" class="ideas-list">
+
+                        <div class="empty-card">
+                            <p>Loading your posts...</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- LEARNING PROGRESS -->
+
+                <section
+                    class="content-card"
+                    id="learningProgressSection"
+                    hidden
+                >
+
+                    <h2>Learning progress</h2>
+
+                    <div id="learningProgressList"></div>
+
+                </section>
+
+
+                <!-- MILESTONES -->
+
+                <section
+                    class="content-card"
+                    id="milestonesSection"
+                    hidden
+                >
+
+                    <h2>My milestones</h2>
+
+                    <div id="milestonesList"></div>
+
+                </section>
+
+
+                <!-- CONTRIBUTIONS -->
+
+                <section
+                    class="content-card"
+                    id="contributionsSection"
+                    hidden
+                >
+
+                    <h2>My contributions</h2>
+
+                    <div id="contributionsList"></div>
+
+                </section>
+
+
+                <!-- WEEKLY REFLECTION -->
+
+                <section
+                    class="content-card"
+                    id="weeklyReflectionSection"
+                    hidden
+                >
+
+                    <h2>Weekly reflections</h2>
+
+                    <div id="weeklyReflectionsList"></div>
+
+                </section>
+
+
+                <!-- PRIVATE JOURNAL -->
+
+                <section
+                    class="content-card"
+                    id="journalSection"
+                    hidden
+                >
+
+                    <h2>Personal journal</h2>
+
+                    <div id="journalList"></div>
+
+                </section>
+
+
+                <!-- LEARNING RESOURCES -->
+
+                <section
+                    class="content-card"
+                    id="resourcesSection"
+                    hidden
+                >
+
+                    <h2>Courses and resources</h2>
+
+                    <div id="learningResourcesList"></div>
+
+                </section>
+
+
+                <!-- SAVED IDEAS -->
+
+                <section
+                    class="content-card"
+                    id="savedIdeasSection"
+                    hidden
+                >
+
+                    <h2>Saved ideas</h2>
+
+                    <div id="savedIdeasList"></div>
+
+                </section>
+
+            </section>
+
+        </div>
+
+
+        <!-- ==================================
+             FOOTER
+        =================================== -->
+
+        <footer class="profile-footer">
+
+            <a href="./main.html" class="brand">
+                core<span>I</span>
+            </a>
+
+            <p>
+                A space to discover. A place to grow.
+            </p>
+
+            <span>
+                © 2026 coreI
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- ==================================
+         MOBILE NAVIGATION
+    =================================== -->
+
+    <nav class="bottom-navigation">
+
+        <a href="./main.html" class="nav-button">
+            <span>⌂</span>
+            Home
+        </a>
+
+        <a href="./main.html" class="nav-button">
+            <span>✧</span>
+            Ideas
+        </a>
+
+        <a href="./profile.html" class="nav-button active">
+            <span>◉</span>
+            Profile
+        </a>
+
+        <a href="./settings.html" class="nav-button">
+            <span>⚙</span>
+            Settings
+        </a>
+
+    </nav>
+
+</body>
+</html>

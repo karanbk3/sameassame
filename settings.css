@@ -1,0 +1,1970 @@
+
+/* =========================================
+   coreI — SETTINGS PAGE
+   Clean | Modern | Responsive
+========================================= */
+
+
+/* =========================================
+   1. COLOURS AND BASIC SETTINGS
+========================================= */
+
+:root {
+    --deep-teal: #123B3A;
+    --fresh-teal: #16A6A0;
+    --soft-mint: #BCE8D5;
+    --warm-ivory: #F5F4EC;
+
+    --white: #FFFFFF;
+    --page-bg: #F3F6F4;
+
+    --text-dark: #263A39;
+    --text-light: #74827E;
+
+    --border: #E3EAE6;
+    --input-bg: #F8FAF9;
+
+    --success: #16865D;
+    --danger: #D94B4B;
+
+    --radius: 15px;
+    --transition: 0.2s ease;
+
+    --shadow: 0 3px 15px rgba(18, 59, 58, 0.06);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 95px;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--page-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================
+   2. HEADER
+========================================= */
+
+.settings-header {
+    width: 100%;
+    min-height: 68px;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+}
+
+.settings-header-inner {
+    max-width: 1200px;
+    min-height: 68px;
+
+    margin: auto;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    color: var(--deep-teal);
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.header-link {
+    padding: 9px 15px;
+
+    border-radius: 9px;
+
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+.header-link:hover,
+.header-link.active {
+    background: #EAF6F2;
+    color: var(--deep-teal);
+}
+
+
+/* =========================================
+   3. MAIN CONTAINER
+========================================= */
+
+.settings-container {
+    width: min(1200px, 94%);
+    margin: 0 auto;
+
+    padding: 38px 0 70px;
+}
+
+
+/* =========================================
+   4. PAGE INTRODUCTION
+========================================= */
+
+.settings-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    color: var(--fresh-teal);
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 1.8px;
+}
+
+.settings-heading h1 {
+    margin: 6px 0;
+
+    color: var(--deep-teal);
+    font-size: clamp(27px, 4vw, 36px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.settings-heading p {
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   5. SEARCH BAR
+========================================= */
+
+.settings-search {
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 0 15px;
+    margin-bottom: 25px;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.settings-search:focus-within {
+    border-color: var(--fresh-teal);
+    box-shadow: 0 0 0 3px rgba(22, 166, 160, 0.08);
+}
+
+.search-icon {
+    color: var(--text-light);
+    font-size: 24px;
+}
+
+.settings-search input {
+    flex: 1;
+    min-width: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: var(--text-dark);
+
+    font-size: 13px;
+}
+
+.settings-search input::placeholder {
+    color: #9BA9A3;
+}
+
+#clearSettingsSearch {
+    width: 29px;
+    height: 29px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 7px;
+
+    background: transparent;
+    color: var(--text-light);
+
+    transition: var(--transition);
+}
+
+#clearSettingsSearch:hover {
+    background: #EAF6F2;
+    color: var(--deep-teal);
+}
+
+
+/* =========================================
+   6. MAIN SETTINGS LAYOUT
+========================================= */
+
+.settings-layout {
+    display: grid;
+    grid-template-columns: 245px minmax(0, 1fr);
+
+    gap: 25px;
+    align-items: start;
+}
+
+.settings-content {
+    min-width: 0;
+}
+
+
+/* =========================================
+   7. SIDEBAR
+========================================= */
+
+.settings-sidebar {
+    position: sticky;
+    top: 88px;
+
+    padding: 18px 12px;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    padding: 5px 8px 18px;
+    margin-bottom: 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.sidebar-profile-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #EAF6F2;
+    border-radius: 12px;
+
+    font-size: 19px;
+}
+
+.sidebar-profile strong {
+    display: block;
+
+    color: var(--deep-teal);
+    font-size: 12px;
+}
+
+.sidebar-profile small {
+    display: block;
+
+    color: var(--text-light);
+    font-size: 10px;
+}
+
+.sidebar-heading {
+    padding: 0 10px;
+    margin-bottom: 12px;
+
+    color: #93A19B;
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: 1.3px;
+}
+
+.settings-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.settings-menu-link {
+    min-height: 43px;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    padding: 10px;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    color: var(--text-light);
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+.settings-menu-link:hover {
+    background: #F1F8F5;
+    color: var(--deep-teal);
+}
+
+.settings-menu-link.active {
+    background: #EAF6F2;
+    border-color: #D8EDE4;
+    color: var(--deep-teal);
+}
+
+.menu-icon {
+    width: 23px;
+    flex-shrink: 0;
+
+    text-align: center;
+    font-size: 15px;
+}
+
+.sidebar-bottom {
+    margin-top: 20px;
+    padding: 16px 10px 3px;
+
+    border-top: 1px solid var(--border);
+}
+
+.sidebar-bottom a {
+    color: var(--text-light);
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+.sidebar-bottom a:hover {
+    color: var(--fresh-teal);
+}
+
+
+/* =========================================
+   8. SETTINGS SECTIONS
+========================================= */
+
+.settings-section {
+    margin-bottom: 30px;
+    scroll-margin-top: 90px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 15px;
+}
+
+.section-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #EAF6F2;
+    border-radius: 12px;
+
+    font-size: 19px;
+}
+
+.section-heading h2 {
+    color: var(--deep-teal);
+    font-size: 17px;
+    font-weight: 750;
+}
+
+.section-heading p {
+    color: var(--text-light);
+    font-size: 11px;
+}
+
+
+/* =========================================
+   9. SETTINGS CARDS
+========================================= */
+
+.settings-card {
+    min-width: 0;
+
+    padding: 23px;
+    margin-bottom: 14px;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+.settings-card h3 {
+    margin-bottom: 15px;
+
+    color: var(--deep-teal);
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.card-description {
+    margin-top: -8px;
+    margin-bottom: 17px;
+
+    color: var(--text-light);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   10. PROFILE PHOTO
+========================================= */
+
+.avatar-settings {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.avatar-settings img {
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    border: 3px solid var(--soft-mint);
+    border-radius: 50%;
+
+    background: var(--warm-ivory);
+}
+
+.avatar-settings h3 {
+    margin-bottom: 4px;
+}
+
+.avatar-settings p {
+    margin-bottom: 3px;
+
+    color: var(--text-dark);
+    font-size: 12px;
+}
+
+.avatar-settings small {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--text-light);
+    font-size: 10px;
+}
+
+.upload-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 13px;
+
+    border: 1px solid #D5EAE1;
+    border-radius: 8px;
+
+    background: #EAF6F2;
+    color: var(--deep-teal);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.upload-button:hover {
+    background: var(--soft-mint);
+}
+
+
+/* =========================================
+   11. FORM GROUPS
+========================================= */
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--text-dark);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    min-height: 43px;
+
+    padding: 11px 13px;
+
+    background: var(--input-bg);
+    color: var(--text-dark);
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 12px;
+
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-group textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--fresh-teal);
+    background: var(--white);
+
+    box-shadow: 0 0 0 3px rgba(22, 166, 160, 0.08);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #A2AEA8;
+}
+
+.form-group small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: var(--text-light);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   12. BUTTONS
+========================================= */
+
+.primary-button,
+.secondary-button,
+.logout-button {
+    min-height: 40px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 17px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.primary-button {
+    background: var(--deep-teal);
+    color: var(--white);
+    border: 1px solid var(--deep-teal);
+}
+
+.primary-button:hover:not(:disabled) {
+    background: var(--fresh-teal);
+    border-color: var(--fresh-teal);
+    transform: translateY(-1px);
+}
+
+.secondary-button {
+    background: #EAF6F2;
+    color: var(--deep-teal);
+    border: 1px solid #D8EDE4;
+}
+
+.secondary-button:hover:not(:disabled) {
+    background: var(--soft-mint);
+}
+
+.primary-button:disabled,
+.secondary-button:disabled,
+.logout-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================
+   13. STATUS MESSAGES
+========================================= */
+
+.settings-message {
+    margin-top: 12px;
+
+    color: var(--text-light);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.settings-message:empty {
+    display: none;
+}
+
+
+/* =========================================
+   14. DIVIDERS
+========================================= */
+
+.settings-divider {
+    height: 1px;
+    margin: 23px 0;
+
+    background: var(--border);
+}
+
+
+/* =========================================
+   15. ACCOUNT INFORMATION
+========================================= */
+
+.account-information h3 {
+    margin-bottom: 9px;
+}
+
+.account-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    font-size: 12px;
+}
+
+.account-row:last-child {
+    border-bottom: none;
+}
+
+.account-row span {
+    color: var(--text-light);
+}
+
+.account-row strong {
+    color: var(--deep-teal);
+    font-size: 12px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   16. SETTINGS OPTIONS
+========================================= */
+
+.settings-option {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+
+    padding: 16px 0;
+
+    border-top: 1px solid var(--border);
+}
+
+.settings-option strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--text-dark);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.settings-option p {
+    color: var(--text-light);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   17. TOGGLE SWITCHES
+========================================= */
+
+.switch {
+    width: 43px;
+    height: 24px;
+    flex-shrink: 0;
+
+    position: relative;
+    display: inline-block;
+}
+
+.switch input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.switch-slider {
+    position: absolute;
+    inset: 0;
+
+    background: #DCE4DF;
+    border-radius: 30px;
+
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.switch-slider::before {
+    content: "";
+
+    width: 18px;
+    height: 18px;
+
+    position: absolute;
+    top: 3px;
+    left: 3px;
+
+    background: var(--white);
+    border-radius: 50%;
+
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+
+    transition: var(--transition);
+}
+
+.switch input:checked + .switch-slider {
+    background: var(--fresh-teal);
+}
+
+.switch input:checked + .switch-slider::before {
+    transform: translateX(19px);
+}
+
+.switch input:focus-visible + .switch-slider {
+    outline: 3px solid rgba(22, 166, 160, 0.25);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   18. PRIVACY NOTICE
+========================================= */
+
+.privacy-notice {
+    margin: 17px 0;
+    padding: 15px;
+
+    background: #EFF8F3;
+    border: 1px solid #D9EDE1;
+    border-radius: 10px;
+}
+
+.privacy-notice strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--deep-teal);
+    font-size: 12px;
+}
+
+.privacy-notice p {
+    color: #60766B;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   19. APPEARANCE / THEME OPTIONS
+========================================= */
+
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+.theme-option {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+
+    padding: 12px;
+
+    background: #F8FAF9;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.theme-option:hover {
+    border-color: var(--fresh-teal);
+}
+
+.theme-option:has(input:checked) {
+    background: #EAF6F2;
+    border-color: var(--fresh-teal);
+}
+
+.theme-option input {
+    accent-color: var(--fresh-teal);
+}
+
+.theme-option strong {
+    color: var(--deep-teal);
+    font-size: 11px;
+}
+
+.theme-preview {
+    width: 100%;
+    height: 67px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    padding: 8px;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+}
+
+.theme-preview span:first-child {
+    width: 45%;
+    height: 9px;
+    border-radius: 5px;
+}
+
+.theme-preview span:last-child {
+    width: 85%;
+    height: 17px;
+    border-radius: 4px;
+}
+
+.light-preview {
+    background: #FFFFFF;
+}
+
+.light-preview span {
+    background: #DCECE5;
+}
+
+.dark-preview {
+    background: #172A29;
+}
+
+.dark-preview span {
+    background: #527B73;
+}
+
+.system-preview {
+    background: linear-gradient(90deg, #FFFFFF 50%, #172A29 50%);
+}
+
+.system-preview span:first-child {
+    background: linear-gradient(90deg, #DCECE5 50%, #527B73 50%);
+}
+
+.system-preview span:last-child {
+    background: linear-gradient(90deg, #EAF6F2 50%, #284743 50%);
+}
+
+
+/* =========================================
+   20. ACTIVITY SUMMARY
+========================================= */
+
+.activity-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.activity-stat {
+    padding: 17px;
+
+    background: #F3F8F5;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+}
+
+.activity-stat span {
+    display: block;
+
+    color: var(--deep-teal);
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.activity-stat small {
+    color: var(--text-light);
+    font-size: 11px;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.activity-list > * {
+    min-width: 0;
+}
+
+.empty-state {
+    padding: 20px;
+
+    background: #F8FAF9;
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+
+    color: var(--text-light);
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* =========================================
+   21. INFORMATION PANEL
+========================================= */
+
+.information-panel {
+    margin-top: 15px;
+    padding: 17px;
+
+    background: #F1F8F5;
+    border: 1px solid #D9EDE1;
+    border-radius: 10px;
+}
+
+.information-panel p {
+    color: #536C61;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.information-panel[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================
+   22. LOGOUT
+========================================= */
+
+.logout-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logout-card h3 {
+    margin-bottom: 4px;
+}
+
+.logout-card p {
+    color: var(--text-light);
+    font-size: 11px;
+}
+
+.logout-button {
+    background: #FFF1F0;
+    color: var(--danger);
+    border: 1px solid #F5D6D2;
+}
+
+.logout-button:hover:not(:disabled) {
+    background: #FCE2DF;
+}
+
+
+/* =========================================
+   23. FOOTER
+========================================= */
+
+.settings-footer {
+    padding: 25px 10px;
+    margin-top: 15px;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+}
+
+.settings-footer .brand {
+    display: inline-block;
+    font-size: 21px;
+}
+
+.settings-footer p {
+    margin: 5px 0;
+
+    color: var(--text-light);
+    font-size: 11px;
+}
+
+.settings-footer small {
+    color: #9AA7A1;
+    font-size: 10px;
+}
+
+
+/* =========================================
+   24. MOBILE BOTTOM NAVIGATION
+========================================= */
+
+.settings-bottom-navigation {
+    display: none;
+}
+
+
+/* =========================================
+   25. TABLET DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+
+    .settings-layout {
+        grid-template-columns: 210px minmax(0, 1fr);
+        gap: 17px;
+    }
+
+    .settings-sidebar {
+        padding: 15px 9px;
+    }
+
+    .settings-menu-link {
+        padding: 10px 8px;
+        font-size: 11px;
+    }
+
+    .settings-card {
+        padding: 19px;
+    }
+
+}
+
+
+/* =========================================
+   26. MOBILE DESIGN
+========================================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding-bottom: 70px;
+    }
+
+    .settings-header {
+        min-height: 58px;
+    }
+
+    .settings-header-inner {
+        min-height: 58px;
+        padding: 0 15px;
+    }
+
+    .brand {
+        font-size: 23px;
+    }
+
+    .header-actions {
+        gap: 3px;
+    }
+
+    .header-link {
+        padding: 8px 9px;
+        font-size: 11px;
+    }
+
+    .settings-container {
+        width: 93%;
+        padding: 25px 0 35px;
+    }
+
+    .settings-heading {
+        margin-bottom: 19px;
+    }
+
+    .settings-heading h1 {
+        font-size: 28px;
+    }
+
+    .settings-heading p {
+        font-size: 12px;
+    }
+
+    .settings-search {
+        height: 46px;
+        margin-bottom: 18px;
+    }
+
+    .settings-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 19px;
+    }
+
+    .settings-sidebar {
+        position: static;
+        width: 100%;
+        padding: 13px;
+    }
+
+    .sidebar-profile {
+        padding-bottom: 13px;
+        margin-bottom: 13px;
+    }
+
+    .settings-navigation {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .settings-menu-link {
+        min-height: 44px;
+        padding: 8px;
+
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .menu-icon {
+        width: 18px;
+        font-size: 13px;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .settings-content {
+        width: 100%;
+    }
+
+    .settings-section {
+        margin-bottom: 27px;
+        scroll-margin-top: 15px;
+    }
+
+    .section-heading {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .section-icon {
+        width: 39px;
+        height: 39px;
+        font-size: 17px;
+    }
+
+    .section-heading h2 {
+        font-size: 15px;
+    }
+
+    .section-heading p {
+        font-size: 10px;
+    }
+
+    .settings-card {
+        padding: 17px;
+        border-radius: 13px;
+    }
+
+    .avatar-settings {
+        gap: 13px;
+    }
+
+    .avatar-settings img {
+        width: 68px;
+        height: 68px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 12px;
+    }
+
+    .primary-button,
+    .secondary-button {
+        min-height: 40px;
+    }
+
+    .settings-bottom-navigation {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: 200;
+
+        width: 100%;
+        min-height: 64px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 8px;
+
+        padding: 7px 12px;
+
+        background: var(--white);
+        border-top: 1px solid var(--border);
+    }
+
+    .settings-bottom-navigation a {
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+
+        padding: 5px;
+
+        border-radius: 8px;
+
+        color: var(--text-light);
+        font-size: 17px;
+    }
+
+    .settings-bottom-navigation small {
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+    .settings-bottom-navigation a.active {
+        background: #EAF6F2;
+        color: var(--deep-teal);
+    }
+
+    .settings-footer {
+        padding-bottom: 20px;
+    }
+
+}
+
+
+/* =========================================
+   27. SMALL PHONE DESIGN
+========================================= */
+
+@media (max-width: 380px) {
+
+    .settings-header-inner {
+        padding: 0 10px;
+    }
+
+    .header-link {
+        padding: 7px;
+        font-size: 10px;
+    }
+
+    .settings-navigation {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-menu-link {
+        min-height: 40px;
+    }
+
+    .settings-option {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .settings-option .secondary-button {
+        width: 100%;
+    }
+
+    .theme-options {
+        gap: 7px;
+    }
+
+    .theme-option {
+        padding: 8px;
+    }
+
+    .logout-card {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .logout-button {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================
+   28. ACCESSIBILITY
+========================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+label:focus-visible {
+    outline: 2px solid var(--fresh-teal);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+}
+
+/* =========================================
+   coreI — SETTINGS THEME & SUPPORT UPGRADE
+   Add this section at the END of settings.css
+========================================= */
+
+
+/* =========================================
+   29. LIGHT THEME COLOUR VARIABLES
+========================================= */
+
+:root {
+    color-scheme: light;
+
+    --settings-page: #F3F6F4;
+    --settings-card: #FFFFFF;
+    --settings-input: #F8FAF9;
+
+    --settings-text: #263A39;
+    --settings-muted: #74827E;
+    --settings-heading: #123B3A;
+
+    --settings-border: #E3EAE6;
+
+    --settings-soft: #EAF6F2;
+    --settings-soft-border: #D8EDE4;
+
+    --settings-notice: #EFF8F3;
+    --settings-notice-text: #60766B;
+
+    --settings-shadow: 0 3px 15px rgba(18, 59, 58, 0.06);
+}
+
+
+/* =========================================
+   30. DARK THEME COLOUR VARIABLES
+========================================= */
+
+body.dark-theme {
+    color-scheme: dark;
+
+    --page-bg: #101A1A;
+    --white: #192727;
+    --input-bg: #203332;
+
+    --text-dark: #E5F0EC;
+    --text-light: #A0B5AD;
+
+    --border: #304542;
+
+    --settings-page: #101A1A;
+    --settings-card: #192727;
+    --settings-input: #203332;
+
+    --settings-text: #E5F0EC;
+    --settings-muted: #A0B5AD;
+    --settings-heading: #D8F1E7;
+
+    --settings-border: #304542;
+
+    --settings-soft: #243B36;
+    --settings-soft-border: #38594F;
+
+    --settings-notice: #203B33;
+    --settings-notice-text: #C0D9CD;
+
+    --settings-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
+
+    background: var(--settings-page);
+    color: var(--settings-text);
+}
+
+
+/* =========================================
+   31. GENERAL DARK THEME
+========================================= */
+
+body.dark-theme {
+    background: var(--settings-page);
+    color: var(--settings-text);
+}
+
+body.dark-theme .settings-header,
+body.dark-theme .settings-sidebar,
+body.dark-theme .settings-card,
+body.dark-theme .settings-search,
+body.dark-theme .settings-bottom-navigation {
+    background: var(--settings-card);
+    border-color: var(--settings-border);
+    box-shadow: var(--settings-shadow);
+}
+
+body.dark-theme .settings-heading h1,
+body.dark-theme .section-heading h2,
+body.dark-theme .settings-card h3,
+body.dark-theme .sidebar-profile strong,
+body.dark-theme .account-row strong,
+body.dark-theme .theme-option strong,
+body.dark-theme .settings-footer .brand {
+    color: var(--settings-heading);
+}
+
+body.dark-theme .settings-heading p,
+body.dark-theme .section-heading p,
+body.dark-theme .sidebar-profile small,
+body.dark-theme .sidebar-heading,
+body.dark-theme .settings-footer p,
+body.dark-theme .settings-footer small {
+    color: var(--settings-muted);
+}
+
+body.dark-theme .settings-menu-link {
+    color: var(--settings-muted);
+}
+
+body.dark-theme .settings-menu-link:hover,
+body.dark-theme .settings-menu-link.active {
+    background: var(--settings-soft);
+    border-color: var(--settings-soft-border);
+    color: var(--settings-heading);
+}
+
+body.dark-theme .header-link {
+    color: var(--settings-muted);
+}
+
+body.dark-theme .header-link:hover,
+body.dark-theme .header-link.active {
+    background: var(--settings-soft);
+    color: var(--settings-heading);
+}
+
+body.dark-theme .search-icon {
+    color: var(--settings-muted);
+}
+
+body.dark-theme .settings-search input {
+    color: var(--settings-text);
+}
+
+body.dark-theme .settings-search input::placeholder {
+    color: #829991;
+}
+
+body.dark-theme #clearSettingsSearch:hover {
+    background: var(--settings-soft);
+    color: var(--settings-heading);
+}
+
+body.dark-theme .sidebar-profile-icon,
+body.dark-theme .section-icon {
+    background: var(--settings-soft);
+}
+
+body.dark-theme .form-group label,
+body.dark-theme .settings-option strong,
+body.dark-theme .avatar-settings p {
+    color: var(--settings-text);
+}
+
+body.dark-theme .form-group input,
+body.dark-theme .form-group textarea,
+body.dark-theme .form-group select {
+    background: var(--settings-input);
+    color: var(--settings-text);
+    border-color: var(--settings-border);
+}
+
+body.dark-theme .form-group input:focus,
+body.dark-theme .form-group textarea:focus,
+body.dark-theme .form-group select:focus {
+    background: var(--settings-card);
+    border-color: var(--fresh-teal);
+}
+
+body.dark-theme .form-group input::placeholder,
+body.dark-theme .form-group textarea::placeholder {
+    color: #829991;
+}
+
+body.dark-theme .account-row,
+body.dark-theme .settings-option,
+body.dark-theme .sidebar-profile,
+body.dark-theme .sidebar-bottom,
+body.dark-theme .avatar-settings {
+    border-color: var(--settings-border);
+}
+
+body.dark-theme .upload-button,
+body.dark-theme .secondary-button {
+    background: var(--settings-soft);
+    border-color: var(--settings-soft-border);
+    color: var(--settings-heading);
+}
+
+body.dark-theme .upload-button:hover,
+body.dark-theme .secondary-button:hover:not(:disabled) {
+    background: #315247;
+}
+
+body.dark-theme .privacy-notice,
+body.dark-theme .information-panel {
+    background: var(--settings-notice);
+    border-color: var(--settings-soft-border);
+}
+
+body.dark-theme .privacy-notice strong,
+body.dark-theme .privacy-notice p,
+body.dark-theme .information-panel p {
+    color: var(--settings-notice-text);
+}
+
+body.dark-theme .theme-option {
+    background: var(--settings-input);
+    border-color: var(--settings-border);
+}
+
+body.dark-theme .theme-option:has(input:checked) {
+    background: var(--settings-soft);
+    border-color: var(--fresh-teal);
+}
+
+body.dark-theme .activity-stat {
+    background: var(--settings-soft);
+    border-color: var(--settings-border);
+}
+
+body.dark-theme .activity-stat span {
+    color: var(--settings-heading);
+}
+
+body.dark-theme .empty-state {
+    background: var(--settings-input);
+    border-color: var(--settings-border);
+    color: var(--settings-muted);
+}
+
+body.dark-theme .settings-bottom-navigation a {
+    color: var(--settings-muted);
+}
+
+body.dark-theme .settings-bottom-navigation a.active {
+    background: var(--settings-soft);
+    color: var(--settings-heading);
+}
+
+body.dark-theme .logout-button {
+    background: #432A2A;
+    border-color: #674040;
+    color: #FFB7B0;
+}
+
+body.dark-theme .logout-button:hover:not(:disabled) {
+    background: #573333;
+}
+
+body.dark-theme .settings-footer {
+    border-color: var(--settings-border);
+}
+
+
+/* =========================================
+   32. ACTIVITY ITEM DARK THEME
+========================================= */
+
+body.dark-theme .activity-item {
+    background: var(--settings-input);
+    border-color: var(--settings-border);
+    color: var(--settings-text);
+}
+
+body.dark-theme .activity-item strong {
+    color: var(--settings-heading);
+}
+
+body.dark-theme .activity-item p,
+body.dark-theme .activity-item small {
+    color: var(--settings-muted);
+}
+
+
+/* =========================================
+   33. SUPPORT HISTORY
+========================================= */
+
+.my-support-issues {
+    margin-top: 25px;
+    padding: 22px;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+.support-history-heading {
+    margin-bottom: 18px;
+}
+
+.support-history-heading h3 {
+    margin-bottom: 5px;
+
+    color: var(--deep-teal);
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.support-history-heading p {
+    color: var(--text-light);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+#mySupportIssuesList {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+.support-history-card {
+    min-width: 0;
+    padding: 17px;
+
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+
+    overflow-wrap: anywhere;
+}
+
+.support-history-card-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+.support-history-title {
+    color: var(--deep-teal);
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.support-history-category {
+    margin-bottom: 8px;
+
+    color: var(--fresh-teal);
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: capitalize;
+}
+
+.support-history-description {
+    margin-bottom: 12px;
+
+    color: var(--text-dark);
+    font-size: 12px;
+    line-height: 1.8;
+
+    white-space: pre-wrap;
+}
+
+.support-history-date {
+    display: block;
+    color: var(--text-light);
+    font-size: 10px;
+}
+
+
+/* =========================================
+   34. SUPPORT STATUS LABELS
+========================================= */
+
+.support-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px 10px;
+
+    border-radius: 30px;
+
+    font-size: 10px;
+    font-weight: 750;
+
+    white-space: nowrap;
+}
+
+.support-status-pending {
+    background: #FFF2D8;
+    color: #936016;
+}
+
+.support-status-in_progress {
+    background: #E5F0FF;
+    color: #315F9C;
+}
+
+.support-status-resolved {
+    background: #DFF5E9;
+    color: #21734B;
+}
+
+
+/* =========================================
+   35. ADMIN REPLY
+========================================= */
+
+.support-admin-reply {
+    margin-top: 15px;
+    padding: 14px;
+
+    background: #EAF6F2;
+    border-left: 3px solid var(--fresh-teal);
+    border-radius: 7px;
+}
+
+.support-admin-reply strong {
+    display: block;
+    margin-bottom: 7px;
+
+    color: var(--deep-teal);
+    font-size: 12px;
+}
+
+.support-admin-reply p {
+    color: #435E55;
+    font-size: 12px;
+    line-height: 1.8;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.support-waiting-message {
+    margin-top: 13px;
+
+    color: var(--text-light);
+    font-size: 11px;
+    font-style: italic;
+}
+
+
+/* =========================================
+   36. SUPPORT HISTORY DARK THEME
+========================================= */
+
+body.dark-theme .my-support-issues {
+    background: var(--settings-card);
+    border-color: var(--settings-border);
+}
+
+body.dark-theme .support-history-heading h3,
+body.dark-theme .support-history-title {
+    color: var(--settings-heading);
+}
+
+body.dark-theme .support-history-heading p,
+body.dark-theme .support-history-date {
+    color: var(--settings-muted);
+}
+
+body.dark-theme .support-history-card {
+    background: var(--settings-input);
+    border-color: var(--settings-border);
+}
+
+body.dark-theme .support-history-description {
+    color: var(--settings-text);
+}
+
+body.dark-theme .support-admin-reply {
+    background: #203B33;
+    border-left-color: var(--fresh-teal);
+}
+
+body.dark-theme .support-admin-reply strong {
+    color: #BCE8D5;
+}
+
+body.dark-theme .support-admin-reply p {
+    color: #D0E3DA;
+}
+
+body.dark-theme .support-status-pending {
+    background: #493A23;
+    color: #FFD58B;
+}
+
+body.dark-theme .support-status-in_progress {
+    background: #253C57;
+    color: #B8D7FF;
+}
+
+body.dark-theme .support-status-resolved {
+    background: #214333;
+    color: #A9E7C0;
+}
+
+
+/* =========================================
+   37. SUPPORT MOBILE DESIGN
+========================================= */
+
+@media (max-width: 650px) {
+
+    .my-support-issues {
+        padding: 16px;
+    }
+
+    .support-history-card {
+        padding: 14px;
+    }
+
+    .support-history-card-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .support-status {
+        align-self: flex-start;
+    }
+
+}
+
+

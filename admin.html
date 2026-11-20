@@ -1,0 +1,1542 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123B3A">
+
+    <meta name="description"
+        content="Manage the coreI community, members, Reading Space, support issues and announcements.">
+
+    <title>coreI — Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./admin.css">
+    <script type="module" src="./admin.js"></script>
+</head>
+
+<body>
+
+    <!-- ACCESS CHECK -->
+    <div id="adminLoading" class="loading-screen">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p>Verifying administrator access...</p>
+    </div>
+
+
+    <!-- ADMIN APPLICATION -->
+    <div id="adminApp" class="admin-app" hidden>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="./main.html" class="brand">
+                core<span>I</span>
+                <small>ADMIN SPACE</small>
+            </a>
+
+            <div class="sidebar-profile">
+                <div class="admin-avatar" aria-hidden="true">A</div>
+                <div>
+                    <strong>Administrator</strong>
+                    <span>Authorized account</span>
+                </div>
+            </div>
+
+            <p class="sidebar-heading">WORKSPACE</p>
+
+            <nav class="sidebar-nav" aria-label="Admin navigation">
+
+                <button type="button" class="nav-item active"
+                    data-section="overviewSection">
+                    <span aria-hidden="true">⌂</span>
+                    Overview
+                </button>
+
+                <button type="button" class="nav-item"
+                    data-section="membersSection">
+                    <span aria-hidden="true">♙</span>
+                    Members
+                    <span class="nav-count" id="sidebarPendingCount">0</span>
+                </button>
+
+                <!-- NEW: READING SPACE -->
+                <button type="button" class="nav-item"
+                    data-section="readingSection">
+                    <span aria-hidden="true">▤</span>
+                    Reading Articles
+                    <span class="nav-count" id="sidebarReadingPendingCount">0</span>
+                </button>
+
+                <button type="button" class="nav-item"
+                    data-section="supportIssuesSection">
+                    <span aria-hidden="true">✉</span>
+                    Support Issues
+                    <span class="nav-count" id="sidebarSupportCount">0</span>
+                </button>
+
+                <button type="button" class="nav-item"
+                    data-section="announcementsSection">
+                    <span aria-hidden="true">◈</span>
+                    Announcements
+                </button>
+
+                <button type="button" class="nav-item"
+                    data-section="ideasSection">
+                    <span aria-hidden="true">✧</span>
+                    Community ideas
+                </button>
+
+                <button type="button" class="nav-item"
+                    data-section="notificationsSection">
+                    <span aria-hidden="true">♧</span>
+                    Notifications
+                </button>
+
+                <button type="button" class="nav-item"
+                    data-section="activitySection">
+                    <span aria-hidden="true">◷</span>
+                    Activity
+                </button>
+
+                <button type="button" class="nav-item"
+                    data-section="analyticsSection">
+                    <span aria-hidden="true">▥</span>
+                    Analytics
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <button type="button" class="nav-item"
+                    data-section="settingsSection">
+                    <span aria-hidden="true">⚙</span>
+                    Settings
+                </button>
+
+                <a href="./main.html" class="back-button">
+                    <span aria-hidden="true">←</span>
+                    Home
+                </a>
+
+                <button type="button"
+                    id="sidebarLogoutButton"
+                    class="sidebar-logout">
+                    Sign out
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN AREA -->
+        <div class="main-area">
+
+            <!-- HEADER -->
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button type="button"
+                        id="menuToggle"
+                        class="menu-toggle"
+                        aria-label="Open navigation"
+                        aria-expanded="false"
+                        aria-controls="sidebar">
+                        ☰
+                    </button>
+
+                    <div>
+                        <span class="topbar-label">COREI MANAGEMENT</span>
+                        <h1 id="pageTitle">Overview</h1>
+                    </div>
+
+                </div>
+
+                <div class="topbar-actions">
+
+                    <button type="button"
+                        id="themeToggleButton"
+                        class="icon-button"
+                        aria-label="Change theme"
+                        title="Change theme">
+                        ◐
+                    </button>
+
+                    <span class="admin-status">
+                        <span class="status-dot"></span>
+                        Administrator
+                    </span>
+
+                    <button type="button"
+                        id="logoutButton"
+                        class="logout-button">
+                        Sign out
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- PAGE CONTENT -->
+            <main class="content-area">
+
+                <div id="globalMessage"
+                    class="global-message"
+                    role="status"
+                    aria-live="polite"></div>
+
+
+                <!-- =================================
+                     1. OVERVIEW
+                ================================== -->
+                <section id="overviewSection"
+                    class="dashboard-section active">
+
+                    <div class="welcome-panel">
+                        <div>
+                            <span class="eyebrow">YOUR CONTROL ROOM</span>
+                            <h2>Welcome to coreI <span>Admin.</span></h2>
+                            <p>
+                                Manage your community, support members,
+                                publish learning resources and monitor activity.
+                            </p>
+                        </div>
+
+                        <div class="welcome-decoration" aria-hidden="true">
+                            coreI
+                        </div>
+                    </div>
+
+
+                    <div class="section-heading">
+                        <div>
+                            <span class="eyebrow">AT A GLANCE</span>
+                            <h2>Community overview</h2>
+                        </div>
+
+                        <button type="button"
+                            id="refreshButton"
+                            class="secondary-button">
+                            ↻ Refresh data
+                        </button>
+                    </div>
+
+
+                    <div class="overview-grid">
+
+                        <article class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-icon">♙</span>
+                                <span class="metric-label">MEMBERS</span>
+                            </div>
+                            <strong id="totalMembersCount">—</strong>
+                            <p>Registered members</p>
+                        </article>
+
+                        <article class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-icon">✧</span>
+                                <span class="metric-label">IDEAS</span>
+                            </div>
+                            <strong id="totalIdeasCount">—</strong>
+                            <p>Community contributions</p>
+                        </article>
+
+                        <article class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-icon">◈</span>
+                                <span class="metric-label">ANNOUNCEMENTS</span>
+                            </div>
+                            <strong id="publishedAnnouncementsCount">—</strong>
+                            <p>Published updates</p>
+                        </article>
+
+                        <article class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-icon">◷</span>
+                                <span class="metric-label">PENDING MEMBERS</span>
+                            </div>
+                            <strong id="pendingCount">—</strong>
+                            <p>Membership requests</p>
+                        </article>
+
+                        <article class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-icon">✉</span>
+                                <span class="metric-label">SUPPORT ISSUES</span>
+                            </div>
+                            <strong id="totalSupportIssuesCount">—</strong>
+                            <p>Member reports received</p>
+
+                            <button type="button"
+                                class="text-button"
+                                data-go="supportIssuesSection">
+                                Open support inbox →
+                            </button>
+                        </article>
+
+                    </div>
+
+
+                    <div class="overview-columns">
+
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <div>
+                                    <span class="eyebrow">MEMBERSHIP</span>
+                                    <h3>Member status</h3>
+                                </div>
+
+                                <button type="button"
+                                    class="text-button"
+                                    data-go="membersSection">
+                                    Manage members →
+                                </button>
+                            </div>
+
+                            <div class="status-overview">
+                                <div class="status-line">
+                                    <span class="status-dot pending-dot"></span>
+                                    <span>Pending</span>
+                                    <strong id="overviewPending">0</strong>
+                                </div>
+
+                                <div class="status-line">
+                                    <span class="status-dot approved-dot"></span>
+                                    <span>Approved</span>
+                                    <strong id="overviewApproved">0</strong>
+                                </div>
+
+                                <div class="status-line">
+                                    <span class="status-dot rejected-dot"></span>
+                                    <span>Rejected</span>
+                                    <strong id="overviewRejected">0</strong>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <div>
+                                    <span class="eyebrow">QUICK ACTIONS</span>
+                                    <h3>Manage coreI</h3>
+                                </div>
+                            </div>
+
+                            <div class="quick-actions">
+
+                                <button type="button" data-go="membersSection">
+                                    <span>♙</span> Review members
+                                </button>
+
+                                <button type="button" data-go="readingSection">
+                                    <span>▤</span> Review articles
+                                </button>
+
+                                <button type="button" data-go="announcementsSection">
+                                    <span>◈</span> Create announcement
+                                </button>
+
+                                <button type="button" data-go="notificationsSection">
+                                    <span>♧</span> Send notification
+                                </button>
+
+                                <button type="button" data-go="ideasSection">
+                                    <span>✧</span> Review ideas
+                                </button>
+
+                                <button type="button" data-go="supportIssuesSection">
+                                    <span>✉</span> Review support issues
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">LATEST UPDATES</span>
+                                <h3>Recent activity</h3>
+                            </div>
+
+                            <button type="button"
+                                class="text-button"
+                                data-go="activitySection">
+                                View all →
+                            </button>
+                        </div>
+
+                        <div id="overviewActivity" class="activity-list">
+                            <p class="empty-state">Loading activity...</p>
+                        </div>
+                    </div>
+
+
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">MEMBER SUPPORT</span>
+                                <h3>Recent reported issues</h3>
+                            </div>
+
+                            <button type="button"
+                                class="text-button"
+                                data-go="supportIssuesSection">
+                                View all issues →
+                            </button>
+                        </div>
+
+                        <div id="overviewSupportIssues" class="content-list">
+                            <p class="empty-state">
+                                Support issues will appear here.
+                            </p>
+                        </div>
+                    </div>
+
+                </section>
+
+
+                <!-- =================================
+                     2. MEMBERS
+                ================================== -->
+                <section id="membersSection" class="dashboard-section">
+
+                    <div class="page-intro">
+                        <span class="eyebrow">COMMUNITY MANAGEMENT</span>
+                        <h2>Member management</h2>
+                        <p>
+                            Review membership requests and manage member access.
+                        </p>
+                    </div>
+
+                    <div class="member-stat-grid">
+
+                        <article class="small-stat">
+                            <span>Pending requests</span>
+                            <strong id="memberPendingStat">0</strong>
+                        </article>
+
+                        <article class="small-stat">
+                            <span>Approved members</span>
+                            <strong id="memberApprovedStat">0</strong>
+                        </article>
+
+                        <article class="small-stat">
+                            <span>Rejected requests</span>
+                            <strong id="memberRejectedStat">0</strong>
+                        </article>
+
+                    </div>
+
+                    <div class="panel">
+
+                        <div class="section-heading compact-heading">
+                            <div>
+                                <h3>All members</h3>
+                                <p>Search and filter registered members.</p>
+                            </div>
+                        </div>
+
+                        <div class="toolbar">
+
+                            <input id="memberSearch"
+                                type="search"
+                                placeholder="Search by member name or code..."
+                                aria-label="Search members">
+
+                            <select id="memberFilter"
+                                aria-label="Filter members">
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                                <option value="all">All members</option>
+                            </select>
+
+                        </div>
+
+                        <div id="membersList" class="members-list">
+                            <p class="empty-state">Loading members...</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================
+                     3. NEW: READING SPACE
+                ================================== -->
+                <section id="readingSection" class="dashboard-section">
+
+                    <div class="page-intro">
+                        <span class="eyebrow">COREI READING SPACE</span>
+                        <h2>Reading articles</h2>
+                        <p>
+                            Publish useful knowledge, review member submissions
+                            and maintain the coreI reading library.
+                        </p>
+                    </div>
+
+
+                    <!-- READING STATISTICS -->
+                    <div class="member-stat-grid">
+
+                        <article class="small-stat">
+                            <span>Total articles</span>
+                            <strong id="readingTotalCount">—</strong>
+                        </article>
+
+                        <article class="small-stat">
+                            <span>Pending review</span>
+                            <strong id="readingPendingCount">—</strong>
+                        </article>
+
+                        <article class="small-stat">
+                            <span>Published</span>
+                            <strong id="readingPublishedCount">—</strong>
+                        </article>
+
+                        <article class="small-stat">
+                            <span>Drafts</span>
+                            <strong id="readingDraftCount">—</strong>
+                        </article>
+
+                    </div>
+
+
+                    <!-- ARTICLE CREATION -->
+                    <div class="panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">CONTENT CREATION</span>
+                                <h3 id="readingFormHeading">Create a new article</h3>
+                            </div>
+
+                            <button type="button"
+                                id="newReadingArticleButton"
+                                class="secondary-button">
+                                + New article
+                            </button>
+                        </div>
+
+
+                        <form id="readingArticleForm">
+
+                            <input type="hidden" id="readingArticleId">
+
+
+                            <div class="form-group">
+                                <label for="readingArticleTitle">
+                                    Article title
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="readingArticleTitle"
+                                    maxlength="180"
+                                    minlength="3"
+                                    placeholder="Enter an informative title..."
+                                    required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="readingArticleCategory">
+                                    Category
+                                </label>
+
+                                <select id="readingArticleCategory" required>
+                                    <option value="">Choose a category</option>
+                                    <option>Love & Relationships</option>
+                                    <option>Friendship & Family</option>
+                                    <option>Life & Meaning</option>
+                                    <option>Philosophy & Wisdom</option>
+                                    <option>Personal Growth & Motivation</option>
+                                    <option>Psychology & Emotions</option>
+                                    <option>Technology & Innovation</option>
+                                    <option>Science & Discovery</option>
+                                    <option>History & Civilization</option>
+                                    <option>World & Society</option>
+                                    <option>Creativity & Imagination</option>
+                                    <option>Education & Knowledge</option>
+                                    <option>Nature & Environment</option>
+                                    <option>Culture, Travel & Lifestyle</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="readingArticleLanguage">
+                                    Language
+                                </label>
+
+                                <select id="readingArticleLanguage" required>
+                                    <option value="English">English</option>
+                                    <option value="Nepali">Nepali</option>
+                                    <option value="Both">English and Nepali</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="readingArticleAuthor">
+                                    Author name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="readingArticleAuthor"
+                                    maxlength="150"
+                                    placeholder="Who wrote this article?"
+                                    required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="readingArticleEditor">
+                                    Editor name (optional)
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="readingArticleEditor"
+                                    maxlength="150"
+                                    placeholder="Editor name">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="readingArticleDescription">
+                                    Short description
+                                </label>
+
+                                <textarea
+                                    id="readingArticleDescription"
+                                    rows="3"
+                                    minlength="10"
+                                    maxlength="350"
+                                    placeholder="Introduce the article in a few sentences..."
+                                    required></textarea>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="readingArticleCover">
+                                    Cover image URL (optional)
+                                </label>
+
+                                <input
+                                    type="url"
+                                    id="readingArticleCover"
+                                    placeholder="https://example.com/image.jpg">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="readingArticleContent">
+                                    Article content
+                                </label>
+
+                                <textarea
+                                    id="readingArticleContent"
+                                    rows="16"
+                                    placeholder="Write the complete article here..."
+                                    required></textarea>
+
+                                <small>
+                                    Plain text is supported. Separate paragraphs
+                                    with blank lines.
+                                </small>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="readingArticleSource">
+                                    Source or reference URL (optional)
+                                </label>
+
+                                <input
+                                    type="url"
+                                    id="readingArticleSource"
+                                    placeholder="https://example.com/source">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="readingArticlePublishedDate">
+                                    Publication date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="readingArticlePublishedDate">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="readingArticleFeatured">
+                                    Featured article
+                                </label>
+
+                                <select id="readingArticleFeatured">
+                                    <option value="false">No</option>
+                                    <option value="true">Yes</option>
+                                </select>
+                            </div>
+
+
+                            <p id="readingArticleFormMessage"
+                                class="form-message"
+                                role="status"
+                                aria-live="polite"></p>
+
+
+                            <div class="form-actions">
+
+                                <button type="button"
+                                    id="saveReadingDraftButton"
+                                    class="secondary-button">
+                                    Save as draft
+                                </button>
+
+                                <button type="submit"
+                                    id="publishReadingArticleButton"
+                                    class="primary-button">
+                                    Publish article
+                                </button>
+
+                                <button type="button"
+                                    id="cancelReadingEditButton"
+                                    class="secondary-button"
+                                    hidden>
+                                    Cancel editing
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- ARTICLE LIBRARY -->
+                    <div class="panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">LIBRARY MANAGEMENT</span>
+                                <h3>All reading articles</h3>
+                            </div>
+
+                            <button type="button"
+                                id="refreshReadingArticlesButton"
+                                class="secondary-button">
+                                ↻ Refresh
+                            </button>
+                        </div>
+
+
+                        <div class="toolbar">
+
+                            <input
+                                type="search"
+                                id="readingArticleSearch"
+                                placeholder="Search by title, author or description..."
+                                aria-label="Search reading articles">
+
+                            <select id="readingArticleStatusFilter"
+                                aria-label="Filter articles by status">
+
+                                <option value="all">All statuses</option>
+                                <option value="pending">Pending review</option>
+                                <option value="draft">Drafts</option>
+                                <option value="published">Published</option>
+                                <option value="needs_revision">Needs revision</option>
+                                <option value="rejected">Rejected</option>
+
+                            </select>
+
+                            <select id="readingArticleCategoryFilter"
+                                aria-label="Filter articles by category">
+
+                                <option value="all">All categories</option>
+                                <option>Love & Relationships</option>
+                                <option>Friendship & Family</option>
+                                <option>Life & Meaning</option>
+                                <option>Philosophy & Wisdom</option>
+                                <option>Personal Growth & Motivation</option>
+                                <option>Psychology & Emotions</option>
+                                <option>Technology & Innovation</option>
+                                <option>Science & Discovery</option>
+                                <option>History & Civilization</option>
+                                <option>World & Society</option>
+                                <option>Creativity & Imagination</option>
+                                <option>Education & Knowledge</option>
+                                <option>Nature & Environment</option>
+                                <option>Culture, Travel & Lifestyle</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div id="readingArticlesList" class="content-list">
+                            <p class="empty-state">
+                                Reading articles will appear here.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- ARTICLE REVIEW INFORMATION -->
+                    <div class="information-note">
+                        <strong>Review before publishing</strong>
+                        <p>
+                            Member submissions should be checked for clarity,
+                            accuracy, originality and appropriate sources.
+                            Request revisions when improvements are needed.
+                        </p>
+                    </div>
+
+                </section>
+
+
+                <!-- =================================
+                     4. SUPPORT ISSUES
+                ================================== -->
+                <section id="supportIssuesSection"
+                    class="dashboard-section">
+
+                    <div class="page-intro">
+                        <span class="eyebrow">MEMBER HELP & SUPPORT</span>
+                        <h2>Support issues</h2>
+                        <p>
+                            Review problems reported by members, respond to
+                            their questions and keep track of their progress.
+                        </p>
+                    </div>
+
+
+                    <div class="member-stat-grid">
+
+                        <article class="small-stat">
+                            <span>Total issues</span>
+                            <strong id="supportTotalCount">0</strong>
+                        </article>
+
+                        <article class="small-stat">
+                            <span>Pending</span>
+                            <strong id="supportPendingCount">0</strong>
+                        </article>
+
+                        <article class="small-stat">
+                            <span>In progress</span>
+                            <strong id="supportProgressCount">0</strong>
+                        </article>
+
+                        <article class="small-stat">
+                            <span>Resolved</span>
+                            <strong id="supportResolvedCount">0</strong>
+                        </article>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">INCOMING REPORTS</span>
+                                <h3>All reported issues</h3>
+                            </div>
+
+                            <button type="button"
+                                id="refreshSupportIssues"
+                                class="secondary-button">
+                                ↻ Refresh
+                            </button>
+                        </div>
+
+
+                        <div class="toolbar">
+
+                            <input type="search"
+                                id="supportSearch"
+                                placeholder="Search issues by subject..."
+                                aria-label="Search support issues">
+
+                            <select id="supportStatusFilter"
+                                aria-label="Filter issues by status">
+                                <option value="all">All statuses</option>
+                                <option value="pending">Pending</option>
+                                <option value="in_progress">In progress</option>
+                                <option value="resolved">Resolved</option>
+                            </select>
+
+                            <select id="supportCategoryFilter"
+                                aria-label="Filter issues by category">
+                                <option value="all">All categories</option>
+                                <option value="technical">Technical</option>
+                                <option value="account">Account</option>
+                                <option value="bug">Bug report</option>
+                                <option value="suggestion">Suggestion</option>
+                                <option value="other">Other</option>
+                            </select>
+
+                        </div>
+
+
+                        <div id="supportIssuesList" class="content-list">
+                            <p class="empty-state">
+                                Support issues will appear here.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div id="supportIssueDetails"
+                        class="panel support-detail-panel"
+                        hidden>
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">ISSUE DETAILS</span>
+                                <h3 id="supportIssueDetailSubject">Selected issue</h3>
+                            </div>
+
+                            <span id="supportIssueDetailStatus"
+                                class="status-badge">
+                                Pending
+                            </span>
+                        </div>
+
+
+                        <div class="support-detail-information">
+
+                            <div class="support-detail-item">
+                                <span>Reported by</span>
+                                <strong id="supportIssueMember">Member</strong>
+                            </div>
+
+                            <div class="support-detail-item">
+                                <span>Category</span>
+                                <strong id="supportIssueCategory">—</strong>
+                            </div>
+
+                            <div class="support-detail-item">
+                                <span>Submitted on</span>
+                                <strong id="supportIssueDate">—</strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="supportIssueDescription">
+                                Member's description
+                            </label>
+
+                            <div id="supportIssueDescription"
+                                class="support-description">
+                                Select an issue to read its description.
+                            </div>
+                        </div>
+
+
+                        <form id="supportResponseForm">
+
+                            <input type="hidden" id="supportIssueId">
+
+                            <div class="form-group">
+                                <label for="supportIssueStatus">
+                                    Update issue status
+                                </label>
+
+                                <select id="supportIssueStatus" required>
+                                    <option value="pending">Pending</option>
+                                    <option value="in_progress">In progress</option>
+                                    <option value="resolved">Resolved</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="supportAdminReply">
+                                    Administrator response
+                                </label>
+
+                                <textarea id="supportAdminReply"
+                                    rows="5"
+                                    maxlength="3000"
+                                    placeholder="Write a helpful response to the member..."></textarea>
+
+                                <small>
+                                    Your response will be visible to the member
+                                    in their Settings page.
+                                </small>
+                            </div>
+
+                            <p id="supportIssueMessage"
+                                class="form-message"
+                                role="status"
+                                aria-live="polite"></p>
+
+                            <div class="form-actions">
+                                <button type="submit"
+                                    id="saveSupportResponseButton"
+                                    class="primary-button">
+                                    Save response
+                                </button>
+
+                                <button type="button"
+                                    id="cancelSupportDetails"
+                                    class="secondary-button">
+                                    Close details
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                    <div class="information-note">
+                        <strong>Protect member information</strong>
+                        <p>
+                            Support reports may contain private information.
+                            Only authorized administrators should access this
+                            section.
+                        </p>
+                    </div>
+
+                </section>
+
+
+                <!-- =================================
+                     5. ANNOUNCEMENTS
+                ================================== -->
+                <section id="announcementsSection"
+                    class="dashboard-section">
+
+                    <div class="page-intro">
+                        <span class="eyebrow">COMMUNITY COMMUNICATION</span>
+                        <h2>Announcements</h2>
+                        <p>
+                            Share new features, improvements and important updates.
+                        </p>
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">CREATE UPDATE</span>
+                                <h3 id="announcementFormHeading">New announcement</h3>
+                            </div>
+                        </div>
+
+
+                        <form id="announcementForm">
+
+                            <input type="hidden" id="announcementEditId">
+
+                            <div class="form-group">
+                                <label for="announcementTitle">
+                                    Announcement title
+                                </label>
+
+                                <input id="announcementTitle"
+                                    type="text"
+                                    maxlength="100"
+                                    placeholder="Write a clear title..."
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="announcementDescription">
+                                    Description
+                                </label>
+
+                                <textarea id="announcementDescription"
+                                    rows="5"
+                                    maxlength="2000"
+                                    placeholder="Explain the update to your members..."
+                                    required></textarea>
+                            </div>
+
+                            <p id="announcementMessage"
+                                class="form-message"
+                                role="status"
+                                aria-live="polite"></p>
+
+                            <div class="form-actions">
+                                <button id="publishAnnouncementButton"
+                                    type="submit"
+                                    class="primary-button">
+                                    Publish announcement
+                                </button>
+
+                                <button id="cancelAnnouncementEdit"
+                                    type="button"
+                                    class="secondary-button"
+                                    hidden>
+                                    Cancel editing
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">CONTENT MANAGEMENT</span>
+                                <h3>Existing announcements</h3>
+                            </div>
+
+                            <button type="button"
+                                id="refreshAnnouncements"
+                                class="secondary-button">
+                                ↻ Refresh
+                            </button>
+                        </div>
+
+                        <div id="announcementsList" class="content-list">
+                            <p class="empty-state">Loading announcements...</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================
+                     6. COMMUNITY IDEAS
+                ================================== -->
+                <section id="ideasSection" class="dashboard-section">
+
+                    <div class="page-intro">
+                        <span class="eyebrow">COMMUNITY CONTRIBUTIONS</span>
+                        <h2>Community ideas</h2>
+                        <p>
+                            Review ideas shared by members and moderate content
+                            when necessary.
+                        </p>
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">IDEA MANAGEMENT</span>
+                                <h3>Published ideas</h3>
+                            </div>
+
+                            <button type="button"
+                                id="refreshIdeas"
+                                class="secondary-button">
+                                ↻ Refresh
+                            </button>
+                        </div>
+
+                        <input id="ideaSearch"
+                            class="full-search"
+                            type="search"
+                            placeholder="Search ideas by title or content..."
+                            aria-label="Search ideas">
+
+                        <div id="ideasList" class="content-list">
+                            <p class="empty-state">Loading ideas...</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================
+                     7. NOTIFICATIONS
+                ================================== -->
+                <section id="notificationsSection"
+                    class="dashboard-section">
+
+                    <div class="page-intro">
+                        <span class="eyebrow">MEMBER COMMUNICATION</span>
+                        <h2>Notifications</h2>
+                        <p>
+                            Send important messages to approved coreI members.
+                        </p>
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">SEND A MESSAGE</span>
+                                <h3>Create notification</h3>
+                            </div>
+                        </div>
+
+
+                        <form id="notificationForm">
+
+                            <div class="form-group">
+                                <label for="notificationTitle">
+                                    Notification title
+                                </label>
+
+                                <input id="notificationTitle"
+                                    type="text"
+                                    maxlength="100"
+                                    placeholder="Example: New learning resources"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="notificationMessage">
+                                    Message
+                                </label>
+
+                                <textarea id="notificationMessage"
+                                    rows="4"
+                                    maxlength="1000"
+                                    placeholder="Write your message..."
+                                    required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="notificationRecipient">
+                                    Recipients
+                                </label>
+
+                                <select id="notificationRecipient">
+                                    <option value="all">
+                                        All approved members
+                                    </option>
+                                </select>
+                            </div>
+
+                            <p id="notificationStatus"
+                                class="form-message"
+                                role="status"
+                                aria-live="polite"></p>
+
+                            <button id="sendNotificationButton"
+                                type="submit"
+                                class="primary-button">
+                                Send notification
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <div class="information-note">
+                        <strong>About notification history</strong>
+                        <p>
+                            Administrators can create notifications.
+                            Members can manage their own notifications.
+                        </p>
+                    </div>
+
+                </section>
+
+
+                <!-- =================================
+                     8. ACTIVITY
+                ================================== -->
+                <section id="activitySection" class="dashboard-section">
+
+                    <div class="page-intro">
+                        <span class="eyebrow">PLATFORM UPDATES</span>
+                        <h2>Recent activity</h2>
+                        <p>
+                            See recent member registrations, ideas and announcements.
+                        </p>
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">LATEST EVENTS</span>
+                                <h3>Community timeline</h3>
+                            </div>
+
+                            <button type="button"
+                                id="refreshActivity"
+                                class="secondary-button">
+                                ↻ Refresh
+                            </button>
+                        </div>
+
+                        <div id="activityList" class="activity-list">
+                            <p class="empty-state">Loading activity...</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="information-note">
+                        This timeline is built from recent database records.
+                        It is not a complete audit log of administrator actions.
+                    </div>
+
+                </section>
+
+
+                <!-- =================================
+                     9. ANALYTICS
+                ================================== -->
+                <section id="analyticsSection" class="dashboard-section">
+
+                    <div class="page-intro">
+                        <span class="eyebrow">COMMUNITY INSIGHTS</span>
+                        <h2>Analytics</h2>
+                        <p>
+                            Understand membership and content activity.
+                        </p>
+                    </div>
+
+
+                    <div class="overview-grid">
+
+                        <article class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-icon">♙</span>
+                                <span class="metric-label">MEMBERS</span>
+                            </div>
+                            <strong id="analyticsMembers">—</strong>
+                            <p>Registered members</p>
+                        </article>
+
+                        <article class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-icon">✧</span>
+                                <span class="metric-label">IDEAS</span>
+                            </div>
+                            <strong id="analyticsIdeas">—</strong>
+                            <p>Published ideas</p>
+                        </article>
+
+                        <article class="metric-card">
+                            <div class="metric-top">
+                                <span class="metric-icon">◈</span>
+                                <span class="metric-label">UPDATES</span>
+                            </div>
+                            <strong id="analyticsAnnouncements">—</strong>
+                            <p>Published announcements</p>
+                        </article>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">RECENT ACTIVITY</span>
+                                <h3>Last seven days</h3>
+                            </div>
+                        </div>
+
+                        <p class="chart-description">
+                            New member registrations and ideas created each day.
+                        </p>
+
+                        <div id="weeklyChart" class="weekly-chart"></div>
+
+                        <div class="chart-legend">
+                            <span><i class="legend-member"></i> Members</span>
+                            <span><i class="legend-idea"></i> Ideas</span>
+                        </div>
+
+                    </div>
+
+
+                    <p class="analytics-note">
+                        These figures are based on records returned by the current
+                        database queries. They are not a complete historical
+                        analytics system.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================
+                     10. ADMIN SETTINGS
+                ================================== -->
+                <section id="settingsSection" class="dashboard-section">
+
+                    <div class="page-intro">
+                        <span class="eyebrow">ACCOUNT PREFERENCES</span>
+                        <h2>Admin settings</h2>
+                        <p>
+                            Manage your account security and dashboard preferences.
+                        </p>
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">ACCOUNT SECURITY</span>
+                                <h3>Change password</h3>
+                            </div>
+                        </div>
+
+
+                        <form id="passwordForm">
+
+                            <div class="form-group">
+                                <label for="newPassword">New password</label>
+
+                                <input id="newPassword"
+                                    type="password"
+                                    minlength="8"
+                                    autocomplete="new-password"
+                                    placeholder="Enter a new password"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword">
+                                    Confirm new password
+                                </label>
+
+                                <input id="confirmPassword"
+                                    type="password"
+                                    minlength="8"
+                                    autocomplete="new-password"
+                                    placeholder="Enter the password again"
+                                    required>
+                            </div>
+
+                            <p id="passwordMessage"
+                                class="form-message"
+                                role="status"
+                                aria-live="polite"></p>
+
+                            <button id="updatePasswordButton"
+                                type="submit"
+                                class="primary-button">
+                                Update password
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">APPEARANCE</span>
+                                <h3>Dashboard theme</h3>
+                            </div>
+                        </div>
+
+                        <p class="setting-description">
+                            Choose how your administrator dashboard looks.
+                            Your preference will be saved on this device.
+                        </p>
+
+                        <div class="form-group">
+                            <label for="adminThemePreference">
+                                Choose your theme
+                            </label>
+
+                            <select id="adminThemePreference">
+                                <option value="system">Use device settings</option>
+                                <option value="light">Light mode</option>
+                                <option value="dark">Dark mode</option>
+                            </select>
+                        </div>
+
+                        <p id="themePreferenceMessage"
+                            class="form-message"
+                            role="status"
+                            aria-live="polite"></p>
+
+                        <button type="button"
+                            id="settingsThemeButton"
+                            class="secondary-button">
+                            Apply theme preference
+                        </button>
+
+                    </div>
+
+
+                    <div class="panel danger-panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <span class="eyebrow">SESSION</span>
+                                <h3>Sign out</h3>
+                            </div>
+                        </div>
+
+                        <p class="setting-description">
+                            End your administrator session on this device.
+                        </p>
+
+                        <button type="button"
+                            id="settingsLogoutButton"
+                            class="danger-button">
+                            Sign out of coreI
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FOOTER -->
+                <footer class="admin-footer">
+
+                    <span>
+                        coreI — A space to discover. A place to grow.
+                    </span>
+
+                    <a href="./main.html">
+                        Open public website ↗
+                    </a>
+
+                </footer>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

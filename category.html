@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#123B3A">
+
+    <meta name="description"
+        content="Explore thoughtful articles and discover new ideas with coreI.">
+
+    <title>Reading Category — coreI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./category.css">
+</head>
+
+<body>
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header class="topbar">
+
+        <a href="./main.html" class="brand">
+            <span class="brand-icon">c</span>
+            <span>coreI</span>
+        </a>
+
+        <nav class="main-navigation" id="mainNavigation">
+
+            <a href="./main.html" class="nav-link">Home</a>
+
+            <a href="./discover.html" class="nav-link active">
+                Discover
+            </a>
+
+            <a href="./main.html#express" class="nav-link">
+                Express
+            </a>
+
+            <a href="./main.html#connect" class="nav-link">
+                Connect
+            </a>
+
+        </nav>
+
+        <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Open navigation"
+            aria-expanded="false">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="category-container">
+
+
+        <!-- Breadcrumb navigation -->
+
+        <div class="breadcrumb">
+
+            <a href="./discover.html">Discover</a>
+
+            <span>›</span>
+
+            <span id="breadcrumbCategory">
+                Reading Category
+            </span>
+
+        </div>
+
+
+        <!-- =====================================
+             CATEGORY INTRODUCTION
+        ====================================== -->
+
+        <section class="category-hero">
+
+            <div class="category-hero-content">
+
+                <span class="eyebrow">
+                    COREI READING SPACE
+                </span>
+
+                <div class="category-main-icon" id="categoryIcon">
+                    📚
+                </div>
+
+                <h1 id="categoryTitle">
+                    Explore ideas and knowledge
+                </h1>
+
+                <p id="categoryDescription">
+                    Discover thoughtful articles, explore different
+                    perspectives and learn something new.
+                </p>
+
+                <div class="category-information">
+
+                    <span id="articleCount">
+                        Loading articles...
+                    </span>
+
+                    <span class="information-dot">•</span>
+
+                    <span>Read at your own pace</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             ARTICLE SEARCH
+        ====================================== -->
+
+        <section class="article-search-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow"></span>
+
+                    <h2>SEARCH HERE</h2>
+
+                    
+                </div>
+
+            </div>
+
+
+            <div class="article-search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="search"
+                    id="articleSearch"
+                    placeholder="Search articles by title or author..."
+                    aria-label="Search articles">
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             ARTICLE LIST
+        ====================================== -->
+
+        <section class="articles-section">
+
+            <div class="articles-heading">
+
+                <h3>ARTICLES</h3>
+
+                <span id="visibleArticleCount">
+                    0 articles
+                </span>
+
+            </div>
+
+
+            <!-- Loading message -->
+
+            <div class="loading-state" id="articleLoading">
+
+                <div class="loading-spinner"></div>
+
+                <p>Finding interesting articles...</p>
+
+            </div>
+
+
+            <!-- Articles will appear here from Supabase -->
+
+            <div
+                class="article-grid"
+                id="articleGrid"
+                aria-live="polite">
+
+            </div>
+
+
+            <!-- No articles found -->
+
+            <div class="empty-state" id="noArticlesMessage" hidden>
+
+                <div class="empty-icon">📖</div>
+
+                <h3>No articles found</h3>
+
+                <p>
+                    There are no articles matching your search.
+                    Try another title or explore a different category.
+                </p>
+
+                <a href="./discover.html" class="back-button">
+                    Explore other categories
+                </a>
+
+            </div>
+
+
+            <!-- Error message -->
+
+            <div class="error-state" id="articleError" hidden>
+
+                <h3>We couldn't load the articles.</h3>
+
+                <p id="articleErrorMessage">
+                    Please check your connection and try again.
+                </p>
+
+                <button id="retryArticlesButton" class="back-button">
+                    Try again
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             BACK TO DISCOVER
+        ====================================== -->
+
+        <section class="back-to-discover">
+
+            <div>
+                
+
+                <h2>There is always something new to discover.</h2>
+
+                <p>
+                    Explore other categories and find ideas
+                    that inspire you.
+                </p>
+            </div>
+
+           
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="site-footer">
+
+        <a href="./main.html" class="brand footer-brand">
+            <span class="brand-icon">c</span>
+            <span>coreI</span>
+        </a>
+
+        <p>
+            A space to discover. A place to grow.
+        </p>
+
+        <span class="footer-copy">
+            © <span id="currentYear"></span> coreI. All rights reserved.
+        </span>
+
+    </footer>
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script type="module" src="./category.js"></script>
+
+</body>
+</html>

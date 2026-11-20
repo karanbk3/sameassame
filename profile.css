@@ -1,0 +1,862 @@
+
+/* =========================================
+   coreI — PROFILE PAGE
+   Simple | Friendly | Responsive
+========================================= */
+
+
+/* 1. COLOURS AND BASIC SETTINGS */
+
+:root {
+    --deep-teal: #123B3A;
+    --fresh-teal: #16A6A0;
+    --soft-mint: #BCE8D5;
+    --warm-ivory: #F5F4EC;
+
+    --white: #FFFFFF;
+    --text-dark: #263238;
+    --text-light: #718080;
+    --border: #E4EAE7;
+    --page-bg: #F1F5F3;
+
+    --shadow: 0 3px 15px rgba(18, 59, 58, 0.07);
+
+    --radius: 14px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--page-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* =========================================
+   2. TOP NAVIGATION
+========================================= */
+
+.profile-header {
+    width: 100%;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    max-width: 1200px;
+    min-height: 68px;
+    margin: auto;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.brand {
+    color: var(--deep-teal);
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.header-navigation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-link {
+    padding: 9px 17px;
+    border-radius: 9px;
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.header-link:hover,
+.header-link.active {
+    background: #EAF6F2;
+    color: var(--deep-teal);
+}
+
+
+/* =========================================
+   3. MAIN PROFILE CONTAINER
+========================================= */
+
+.profile-container {
+    max-width: 1100px;
+    margin: 30px auto 50px;
+    padding: 0 20px;
+}
+
+
+/* =========================================
+   4. PROFILE CARD
+========================================= */
+
+.profile-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.profile-cover {
+    width: 100%;
+    height: 230px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        120deg,
+        var(--deep-teal),
+        var(--fresh-teal)
+    );
+}
+
+.profile-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cover-placeholder {
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(188, 232, 213, 0.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            120deg,
+            #123B3A,
+            #168D87
+        );
+}
+
+.profile-information {
+    padding: 0 30px 20px;
+    display: flex;
+    align-items: flex-end;
+    gap: 22px;
+}
+
+.profile-avatar-container {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    margin-top: -70px;
+    position: relative;
+    z-index: 2;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--white);
+    background: var(--warm-ivory);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-details {
+    flex: 1;
+    min-width: 0;
+    padding-top: 17px;
+}
+
+.profile-title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.profile-name-area {
+    color: var(--deep-teal);
+    font-size: 27px;
+    font-weight: 750;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.profile-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 11px;
+    border-radius: 20px;
+    background: #EAF6F2;
+    color: var(--deep-teal);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.profile-bio {
+    margin-top: 7px;
+    color: var(--text-light);
+    font-size: 14px;
+    max-width: 650px;
+    overflow-wrap: anywhere;
+}
+
+.profile-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+    padding-bottom: 5px;
+}
+
+.primary-button,
+.secondary-button {
+    min-height: 40px;
+    padding: 9px 17px;
+    border-radius: 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 650;
+    transition: 0.2s ease;
+}
+
+.primary-button {
+    background: var(--deep-teal);
+    color: var(--white);
+    border: 1px solid var(--deep-teal);
+}
+
+.primary-button:hover {
+    background: var(--fresh-teal);
+    border-color: var(--fresh-teal);
+}
+
+.secondary-button {
+    background: #EAF6F2;
+    color: var(--deep-teal);
+    border: 1px solid #D7EAE2;
+}
+
+.secondary-button:hover {
+    background: var(--soft-mint);
+}
+
+
+/* =========================================
+   5. PROFILE TABS
+========================================= */
+
+.profile-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 25px;
+    border-top: 1px solid var(--border);
+    overflow-x: auto;
+}
+
+.profile-tab {
+    padding: 15px 17px;
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 650;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: 0.2s ease;
+}
+
+.profile-tab:hover,
+.profile-tab.active {
+    color: var(--deep-teal);
+    border-bottom-color: var(--fresh-teal);
+}
+
+
+/* =========================================
+   6. PROFILE CONTENT LAYOUT
+========================================= */
+
+.profile-content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.5fr);
+    gap: 22px;
+    margin-top: 22px;
+    align-items: start;
+}
+
+.profile-left-column,
+.profile-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+}
+
+
+/* =========================================
+   7. CONTENT CARDS
+========================================= */
+
+.content-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow);
+    min-width: 0;
+}
+
+.content-card h2,
+.content-card h3 {
+    color: var(--deep-teal);
+    font-size: 17px;
+    font-weight: 750;
+    line-height: 1.4;
+}
+
+.card-description {
+    margin-top: 5px;
+    margin-bottom: 16px;
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+
+/* =========================================
+   8. ABOUT INFORMATION
+========================================= */
+
+.about-information {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 17px;
+}
+
+.about-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-light);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.about-icon {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #EAF6F2;
+    color: var(--deep-teal);
+}
+
+.about-item strong {
+    display: block;
+    color: var(--text-dark);
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.text-link {
+    color: var(--fresh-teal);
+    font-weight: 650;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   9. LISTS AND TAGS
+========================================= */
+
+.content-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.tag-list span {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    background: #EAF6F2;
+    border: 1px solid #DCEFE7;
+    border-radius: 20px;
+    color: var(--deep-teal);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   10. EMPTY CONTENT
+========================================= */
+
+.empty-card {
+    padding: 22px 15px;
+    text-align: center;
+    background: #F8FAF9;
+    border: 1px dashed #D8E4DE;
+    border-radius: 11px;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   11. SHARE SOMETHING CARD
+========================================= */
+
+.share-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 19px 22px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.share-card p {
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.share-card a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 15px;
+    border-radius: 9px;
+    background: var(--deep-teal);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 650;
+    white-space: nowrap;
+    transition: 0.2s ease;
+}
+
+.share-card a:hover {
+    background: var(--fresh-teal);
+}
+
+
+/* =========================================
+   12. PUBLISHED IDEAS
+========================================= */
+
+.posts-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.ideas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ideas-list > * {
+    min-width: 0;
+}
+
+.ideas-list .idea-card {
+    padding: 17px;
+    background: #F8FAF9;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+}
+
+.ideas-list .idea-card h3 {
+    margin-bottom: 7px;
+    font-size: 15px;
+}
+
+.ideas-list .idea-card p {
+    color: var(--text-light);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.ideas-list .idea-date {
+    display: block;
+    margin-top: 12px;
+    color: #8A9995;
+    font-size: 11px;
+}
+
+
+/* =========================================
+   13. ADMIN CARD
+========================================= */
+
+.admin-card {
+    background: #F1F8F5;
+    border: 1px solid #D6EAE0;
+    border-radius: var(--radius);
+    padding: 18px;
+}
+
+.admin-card h3 {
+    color: var(--deep-teal);
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.admin-card p {
+    color: var(--text-light);
+    font-size: 12px;
+    margin-bottom: 13px;
+}
+
+.admin-card a,
+.admin-card button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 14px;
+    background: var(--deep-teal);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   14. FOOTER
+========================================= */
+
+.profile-footer {
+    padding: 25px 20px;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.profile-footer .brand {
+    font-size: 21px;
+}
+
+.profile-footer p {
+    margin-top: 5px;
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+
+/* =========================================
+   15. MOBILE BOTTOM NAVIGATION
+========================================= */
+
+.bottom-navigation {
+    display: none;
+}
+
+
+/* =========================================
+   16. TABLET DESIGN
+========================================= */
+
+@media (max-width: 850px) {
+
+    .profile-container {
+        max-width: 760px;
+    }
+
+    .profile-content {
+        grid-template-columns: 1fr 1.3fr;
+        gap: 15px;
+    }
+
+    .profile-information {
+        flex-wrap: wrap;
+    }
+
+    .profile-actions {
+        margin-left: auto;
+    }
+
+    .profile-name-area {
+        font-size: 24px;
+    }
+}
+
+
+/* =========================================
+   17. MOBILE DESIGN
+========================================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding-bottom: 68px;
+    }
+
+    .header-inner {
+        min-height: 58px;
+        padding: 0 16px;
+    }
+
+    .brand {
+        font-size: 23px;
+    }
+
+    .header-navigation {
+        gap: 2px;
+    }
+
+    .header-link {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .profile-container {
+        margin: 14px auto 30px;
+        padding: 0 12px;
+    }
+
+    .profile-cover {
+        height: 145px;
+    }
+
+    .profile-information {
+        padding: 0 16px 17px;
+        display: block;
+    }
+
+    .profile-avatar-container {
+        width: 112px;
+        height: 112px;
+        margin-top: -55px;
+    }
+
+    .profile-avatar {
+        width: 112px;
+        height: 112px;
+        border-width: 4px;
+    }
+
+    .profile-details {
+        padding-top: 12px;
+    }
+
+    .profile-title-row {
+        gap: 8px;
+    }
+
+    .profile-name-area {
+        font-size: 22px;
+    }
+
+    .profile-bio {
+        font-size: 13px;
+    }
+
+    .profile-meta {
+        gap: 9px;
+        font-size: 11px;
+    }
+
+    .profile-actions {
+        margin-top: 15px;
+        padding: 0;
+    }
+
+    .profile-actions a {
+        flex: 1;
+    }
+
+    .profile-tabs {
+        padding: 0 10px;
+        gap: 2px;
+    }
+
+    .profile-tab {
+        padding: 13px 12px;
+        font-size: 12px;
+    }
+
+    .profile-content {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    .profile-left-column,
+    .profile-right-column {
+        gap: 15px;
+    }
+
+    .content-card {
+        padding: 18px;
+    }
+
+    .content-card h2,
+    .content-card h3 {
+        font-size: 16px;
+    }
+
+    .share-card {
+        padding: 16px;
+    }
+
+    .share-card p {
+        font-size: 12px;
+    }
+
+    .share-card a {
+        padding: 9px 11px;
+        font-size: 11px;
+    }
+
+    .bottom-navigation {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: 200;
+        width: 100%;
+        min-height: 62px;
+        padding: 7px 8px;
+        background: var(--white);
+        border-top: 1px solid var(--border);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 5px;
+    }
+
+    .nav-button {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        color: var(--text-light);
+        font-size: 10px;
+        font-weight: 600;
+        padding: 5px 2px;
+        border-radius: 8px;
+        transition: 0.2s ease;
+    }
+
+    .nav-button:hover,
+    .nav-button.active {
+        color: var(--deep-teal);
+        background: #EAF6F2;
+    }
+
+    .profile-footer {
+        padding: 20px 15px;
+    }
+}
+
+
+/* =========================================
+   18. SMALL PHONE DESIGN
+========================================= */
+
+@media (max-width: 380px) {
+
+    .header-inner {
+        padding: 0 10px;
+    }
+
+    .header-link {
+        padding: 7px;
+        font-size: 11px;
+    }
+
+    .profile-name-area {
+        font-size: 20px;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+    }
+
+    .profile-actions a {
+        width: 100%;
+    }
+
+    .share-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .share-card a {
+        width: 100%;
+    }
+}
